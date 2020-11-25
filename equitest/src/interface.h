@@ -4,3 +4,6 @@
 
 GtkWidget* create_home (void);
 GtkWidget* create_ajout (void);
+GtkWidget* create_delete (void);
+GtkWidget* create_search (void);
+GtkWidget* create_modifier (void);

@@ -24,3 +24,15 @@ on_button4_clicked                     (GtkButton       *button,
 void
 on_button6_clicked                     (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_delete_clicked                      (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_trouver_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button9_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
