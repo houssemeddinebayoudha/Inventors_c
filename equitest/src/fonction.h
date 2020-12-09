@@ -2,6 +2,15 @@
 #include<string.h>
 #include<stdlib.h>
 #include <time.h>
+#include <gtk/gtk.h>
+enum{
+EID,
+EMARQUE,
+EETAT,
+EDISPO,
+COLUMNS,
+EDATE,
+};
 struct Date{
 int jour;
 int mois;
@@ -25,7 +34,7 @@ void supprimer(char id[20]);
 
 equi chercher(char id[20]);
 
-void afficher();
+void afficher(GtkWidget *liste);
 
 
 //float tauxdab(struct ouvriers o);
