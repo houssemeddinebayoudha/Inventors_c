@@ -9,7 +9,7 @@ EMARQUE,
 EETAT,
 EDISPO,
 COLUMNS,
-EDATE,
+EDATE
 };
 struct Date{
 int jour;

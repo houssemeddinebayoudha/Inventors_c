@@ -8,7 +8,7 @@ struct tm tm = *localtime(&t);
 f=fopen("equipement.txt","a+");
 
 if (f!=NULL){
-fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,1,tm.tm_mday,tm.tm_mon+1,tm.tm_year+1900);
+fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,e.dispo,tm.tm_mday,tm.tm_mon+1,tm.tm_year+1900);
 }
 
 fclose(f);
@@ -100,8 +100,8 @@ store=NULL;
 equi e;
 char dispo[20];
 char etat[20];
-char date[20];
-//store=gtk_tree_view_get_model(liste);
+char date[30];
+store=gtk_tree_view_get_model(liste);
 
 if(store==NULL){
 renderer= gtk_cell_renderer_text_new();
@@ -135,6 +135,7 @@ printf("Error while opening");
 }else{
 
 while(fscanf(f,"%s %s %c %d %d %d %d",e.id,e.marque,&e.etat,&e.dispo,&(e.date_daj.jour),&(e.date_daj.mois),&(e.date_daj.annee))!=EOF){
+sprintf(date,"%d / %d / %d",e.date_daj.jour,e.date_daj.mois,e.date_daj.annee);
 if(e.etat=='p'){
 sprintf(etat,"%s","en panne");
 }else{
@@ -145,7 +146,7 @@ sprintf(dispo,"%s","disponible");
 }else{
 sprintf(dispo,"%s","non disponible");
 }
-sprintf(date,"%d / %d / %d",e.date_daj.jour,e.date_daj.mois,e.date_daj.annee);
+
 gtk_list_store_append (store,&iter);
 gtk_list_store_set (store,&iter,EID, e.id,EMARQUE, e.marque,EETAT,etat,EDISPO,dispo,EDATE,date,-1);
 
