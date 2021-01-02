@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include<gtk/gtk.h>
 enum
-{ 
-	EID,
-	ETYPE,
-	ESEXE,
-	EDATE,
-	COLUMNS,
+{
+EID,
+ETYPE,
+ESEXE,
+EDATE,
+COLUMNS,
 };
 typedef struct {
   int jour;

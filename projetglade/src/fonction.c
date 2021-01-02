@@ -96,7 +96,7 @@ gtk_tree_view_append_column (GTK_TREE_VIEW (liste),column);
 
 
 renderer= gtk_cell_renderer_text_new();
-column= gtk_tree_view_column_new_with_attributes("sexe",renderer,"text",ESEXE, NULL);
+column= gtk_tree_view_column_new_with_attributes(" sexe",renderer,"text",ESEXE, NULL);
 gtk_tree_view_append_column (GTK_TREE_VIEW (liste),column);
 
 
@@ -107,7 +107,7 @@ column= gtk_tree_view_column_new_with_attributes(" date",renderer,"text",EDATE, 
 gtk_tree_view_append_column (GTK_TREE_VIEW (liste),column);
 }
 
-store=gtk_list_store_new (COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+store=gtk_list_store_new (COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
 
 
 
@@ -118,18 +118,19 @@ FILE* f;
 
 fopen("troupeaux.txt" ,"r+");
 if (f==NULL){
-	return
+	return;
 	}else{
 
-while( fscanf (f,"%s %s %s %d %d %d", a.id,a.type,a.sexe,&(a.date_naiss.jour),&(a.date_naiss.mois),&(a.date_naiss.annee) !=EOF){sprintf(date,"%d / %d / %d",a.date_naiss.jour,a.date_naiss.mois,a.date_naiss.annee);
+while( fscanf (f,"%s %s %s %d %d %d", a.id,a.type,a.sexe,&(a.date_naiss.jour),&(a.date_naiss.mois),&(a.date_naiss.annee)) !=EOF){sprintf(date,"%d / %d / %d",a.date_naiss.jour,a.date_naiss.mois,a.date_naiss.annee);
 gtk_list_store_append (store,&iter);
-gtk_list_store_set (store,&iter,EID, id,ETYPE, type ,ESEXE,sexe,EDATE,date,-1);
+gtk_list_store_set (store,&iter,EID, a.id,ETYPE, a.type ,ESEXE,a.sexe,EDATE,date,-1);
 }
-
+  
 fclose(f);
 gtk_tree_view_set_model(GTK_TREE_VIEW(liste) ,GTK_TREE_MODEL (store));
 g_object_unref (store);
 } 
+ }
 
 int nbr_de_trp_chaq_type( char type [20])
  {
@@ -149,6 +150,6 @@ if (strcmp(a.type,type)==0)
   }
 } 
 fclose(f);
-return i;
+return(i);
  }
              }
