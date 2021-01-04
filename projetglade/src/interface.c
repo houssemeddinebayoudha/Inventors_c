@@ -276,7 +276,7 @@ create_Ajouterunanimal (void)
   combobox1 = gtk_combo_box_new_text ();
   gtk_widget_show (combobox1);
   gtk_fixed_put (GTK_FIXED (fixed5), combobox1, 160, 192);
-  gtk_widget_set_size_request (combobox1, 128, 24);
+  gtk_widget_set_size_request (combobox1, 136, 32);
   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("male "));
   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("femelle"));
 
@@ -394,16 +394,16 @@ create_modifier (void)
 {
   GtkWidget *modifier;
   GtkWidget *fixed7;
-  GtkWidget *entry1;
-  GtkObject *spinbutton1_adj;
-  GtkWidget *spinbutton1;
-  GtkObject *spinbutton2_adj;
-  GtkWidget *spinbutton2;
-  GtkObject *spinbutton3_adj;
-  GtkWidget *spinbutton3;
+  GtkWidget *id;
+  GtkObject *Jour_adj;
+  GtkWidget *Jour;
+  GtkObject *Mois_adj;
+  GtkWidget *Mois;
+  GtkObject *Annee_adj;
+  GtkWidget *Annee;
   GtkWidget *label12;
   GtkWidget *label13;
-  GtkWidget *id;
+  GtkWidget *id1;
   GtkWidget *label14;
   GtkWidget *label15;
   GtkWidget *label16;
@@ -422,11 +422,11 @@ create_modifier (void)
   GtkWidget *hbox4;
   GtkWidget *image4;
   GtkWidget *label20;
+  GtkWidget *label17;
   GtkWidget *radiobutton4;
   GSList *radiobutton4_group = NULL;
   GtkWidget *radiobutton5;
   GtkWidget *radiobutton7;
-  GtkWidget *label17;
 
   modifier = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (modifier), _("modifier"));
@@ -435,29 +435,29 @@ create_modifier (void)
   gtk_widget_show (fixed7);
   gtk_container_add (GTK_CONTAINER (modifier), fixed7);
 
-  entry1 = gtk_entry_new ();
-  gtk_widget_show (entry1);
-  gtk_fixed_put (GTK_FIXED (fixed7), entry1, 208, 16);
-  gtk_widget_set_size_request (entry1, 144, 24);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry1), 8226);
+  id = gtk_entry_new ();
+  gtk_widget_show (id);
+  gtk_fixed_put (GTK_FIXED (fixed7), id, 208, 16);
+  gtk_widget_set_size_request (id, 144, 24);
+  gtk_entry_set_invisible_char (GTK_ENTRY (id), 8226);
 
-  spinbutton1_adj = gtk_adjustment_new (1, 0, 100, 1, 10, 10);
-  spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-  gtk_widget_show (spinbutton1);
-  gtk_fixed_put (GTK_FIXED (fixed7), spinbutton1, 176, 104);
-  gtk_widget_set_size_request (spinbutton1, 48, 24);
+  Jour_adj = gtk_adjustment_new (4, 1, 31, 1, 10, 10);
+  Jour = gtk_spin_button_new (GTK_ADJUSTMENT (Jour_adj), 1, 0);
+  gtk_widget_show (Jour);
+  gtk_fixed_put (GTK_FIXED (fixed7), Jour, 176, 104);
+  gtk_widget_set_size_request (Jour, 48, 24);
 
-  spinbutton2_adj = gtk_adjustment_new (1, 0, 100, 1, 10, 10);
-  spinbutton2 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton2_adj), 1, 0);
-  gtk_widget_show (spinbutton2);
-  gtk_fixed_put (GTK_FIXED (fixed7), spinbutton2, 272, 104);
-  gtk_widget_set_size_request (spinbutton2, 48, 24);
+  Mois_adj = gtk_adjustment_new (1, 1, 12, 1, 10, 10);
+  Mois = gtk_spin_button_new (GTK_ADJUSTMENT (Mois_adj), 1, 0);
+  gtk_widget_show (Mois);
+  gtk_fixed_put (GTK_FIXED (fixed7), Mois, 272, 104);
+  gtk_widget_set_size_request (Mois, 48, 24);
 
-  spinbutton3_adj = gtk_adjustment_new (1, 0, 100, 1, 10, 10);
-  spinbutton3 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton3_adj), 1, 0);
-  gtk_widget_show (spinbutton3);
-  gtk_fixed_put (GTK_FIXED (fixed7), spinbutton3, 376, 104);
-  gtk_widget_set_size_request (spinbutton3, 48, 24);
+  Annee_adj = gtk_adjustment_new (1, 2000, 2021, 1, 10, 10);
+  Annee = gtk_spin_button_new (GTK_ADJUSTMENT (Annee_adj), 1, 0);
+  gtk_widget_show (Annee);
+  gtk_fixed_put (GTK_FIXED (fixed7), Annee, 376, 104);
+  gtk_widget_set_size_request (Annee, 48, 24);
 
   label12 = gtk_label_new (_("L'ID de l'animal \303\240 modifier : "));
   gtk_widget_show (label12);
@@ -469,11 +469,11 @@ create_modifier (void)
   gtk_fixed_put (GTK_FIXED (fixed7), label13, 104, 48);
   gtk_widget_set_size_request (label13, 208, 16);
 
-  id = gtk_entry_new ();
-  gtk_widget_show (id);
-  gtk_fixed_put (GTK_FIXED (fixed7), id, 40, 72);
-  gtk_widget_set_size_request (id, 144, 24);
-  gtk_entry_set_invisible_char (GTK_ENTRY (id), 8226);
+  id1 = gtk_entry_new ();
+  gtk_widget_show (id1);
+  gtk_fixed_put (GTK_FIXED (fixed7), id1, 40, 72);
+  gtk_widget_set_size_request (id1, 144, 24);
+  gtk_entry_set_invisible_char (GTK_ENTRY (id1), 8226);
 
   label14 = gtk_label_new (_("Date de naissance: Jour :"));
   gtk_widget_show (label14);
@@ -554,6 +554,11 @@ create_modifier (void)
   gtk_widget_show (label20);
   gtk_box_pack_start (GTK_BOX (hbox4), label20, FALSE, FALSE, 0);
 
+  label17 = gtk_label_new (_("ID :"));
+  gtk_widget_show (label17);
+  gtk_fixed_put (GTK_FIXED (fixed7), label17, 0, 72);
+  gtk_widget_set_size_request (label17, 49, 17);
+
   radiobutton4 = gtk_radio_button_new_with_mnemonic (NULL, _("male"));
   gtk_widget_show (radiobutton4);
   gtk_fixed_put (GTK_FIXED (fixed7), radiobutton4, 88, 136);
@@ -574,11 +579,6 @@ create_modifier (void)
   gtk_widget_set_size_request (radiobutton7, 116, 24);
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton7), radiobutton4_group);
   radiobutton4_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton7));
-
-  label17 = gtk_label_new (_("ID :"));
-  gtk_widget_show (label17);
-  gtk_fixed_put (GTK_FIXED (fixed7), label17, 0, 72);
-  gtk_widget_set_size_request (label17, 49, 17);
 
   g_signal_connect ((gpointer) radiobutton6, "toggled",
                     G_CALLBACK (on_radiobutton6_toggled),
@@ -602,13 +602,13 @@ create_modifier (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (modifier, modifier, "modifier");
   GLADE_HOOKUP_OBJECT (modifier, fixed7, "fixed7");
-  GLADE_HOOKUP_OBJECT (modifier, entry1, "entry1");
-  GLADE_HOOKUP_OBJECT (modifier, spinbutton1, "spinbutton1");
-  GLADE_HOOKUP_OBJECT (modifier, spinbutton2, "spinbutton2");
-  GLADE_HOOKUP_OBJECT (modifier, spinbutton3, "spinbutton3");
+  GLADE_HOOKUP_OBJECT (modifier, id, "id");
+  GLADE_HOOKUP_OBJECT (modifier, Jour, "Jour");
+  GLADE_HOOKUP_OBJECT (modifier, Mois, "Mois");
+  GLADE_HOOKUP_OBJECT (modifier, Annee, "Annee");
   GLADE_HOOKUP_OBJECT (modifier, label12, "label12");
   GLADE_HOOKUP_OBJECT (modifier, label13, "label13");
-  GLADE_HOOKUP_OBJECT (modifier, id, "id");
+  GLADE_HOOKUP_OBJECT (modifier, id1, "id1");
   GLADE_HOOKUP_OBJECT (modifier, label14, "label14");
   GLADE_HOOKUP_OBJECT (modifier, label15, "label15");
   GLADE_HOOKUP_OBJECT (modifier, label16, "label16");
@@ -626,10 +626,10 @@ create_modifier (void)
   GLADE_HOOKUP_OBJECT (modifier, hbox4, "hbox4");
   GLADE_HOOKUP_OBJECT (modifier, image4, "image4");
   GLADE_HOOKUP_OBJECT (modifier, label20, "label20");
+  GLADE_HOOKUP_OBJECT (modifier, label17, "label17");
   GLADE_HOOKUP_OBJECT (modifier, radiobutton4, "radiobutton4");
   GLADE_HOOKUP_OBJECT (modifier, radiobutton5, "radiobutton5");
   GLADE_HOOKUP_OBJECT (modifier, radiobutton7, "radiobutton7");
-  GLADE_HOOKUP_OBJECT (modifier, label17, "label17");
 
   return modifier;
 }

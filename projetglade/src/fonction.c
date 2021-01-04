@@ -14,7 +14,7 @@ fclose(f);
 
 }
 
-void modifier (char id[10], animal a){
+void modifie (char id[10], animal a){
 FILE* f;
 animal a1;
 f= fopen ("troupeaux.txt", "r+");
