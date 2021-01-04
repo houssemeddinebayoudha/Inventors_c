@@ -8,9 +8,10 @@ EID,
 EMARQUE,
 EETAT,
 EDISPO,
-COLUMNS,
-EDATE
+EDATE,
+COLUMNS
 };
+
 struct Date{
 int jour;
 int mois;
