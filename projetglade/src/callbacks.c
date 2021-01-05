@@ -11,7 +11,7 @@
 char temp[20]="brebi";
 char tempmodif[20]="brebi";
 char sexemodif[20]="male";
-
+char typpe[20]="brebi";
 void
 on_buttonAfficher_clicked              (GtkWidget      *objet,
                                         gpointer         user_data)
@@ -66,6 +66,12 @@ void
 on_buttontype_clicked                  (GtkWidget      *objet,
                                         gpointer         user_data)
 {
+GtkWidget *Mestroupeaux, *type;
+Mestroupeaux=lookup_widget(objet, "Mestroupeaux");
+gtk_widget_destroy(Mestroupeaux);
+
+type=create_type();
+gtk_widget_show(type);
 
 }
 
@@ -235,4 +241,47 @@ if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 
 
 
+
+
+void
+on_radiobutton7_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+ strcpy(typpe,"veau");
+}
+
+
+void
+on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+ strcpy(typpe,"Brebi");
+}
+
+
+
+
+void
+on_OK_clicked                          (GtkWidget       *objet,
+                                        gpointer         user_data)
+{
+	GtkWidget *OK;
+animal a;
+OK =lookup_widget(objet, "OK" );
+ strcpy(a.type,typpe);
+}
+
+
+void
+on_retourtype_clicked                  (GtkWidget       *objet,
+                                        gpointer         user_data)
+{
+GtkWidget *Mestroupeaux,*type;
+type=lookup_widget(objet,"type");
+gtk_widget_destroy(type);
+Mestroupeaux=create_Mestroupeaux();
+gtk_widget_show(Mestroupeaux);
+}
 

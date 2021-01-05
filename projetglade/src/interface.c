@@ -618,3 +618,124 @@ create_modifier (void)
   return modifier;
 }
 
+GtkWidget*
+create_type (void)
+{
+  GtkWidget *type;
+  GtkWidget *fixed9;
+  GtkWidget *label23;
+  GtkWidget *radiobutton7;
+  GSList *radiobutton7_group = NULL;
+  GtkWidget *radiobutton6;
+  GtkWidget *OK;
+  GtkWidget *alignment7;
+  GtkWidget *hbox7;
+  GtkWidget *image7;
+  GtkWidget *label24;
+  GtkWidget *retourtype;
+  GtkWidget *alignment8;
+  GtkWidget *hbox8;
+  GtkWidget *image8;
+  GtkWidget *label25;
+
+  type = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (type), _("type"));
+
+  fixed9 = gtk_fixed_new ();
+  gtk_widget_show (fixed9);
+  gtk_container_add (GTK_CONTAINER (type), fixed9);
+
+  label23 = gtk_label_new (_("S\303\251lectionner le type des troupeaux :"));
+  gtk_widget_show (label23);
+  gtk_fixed_put (GTK_FIXED (fixed9), label23, 56, 16);
+  gtk_widget_set_size_request (label23, 248, 32);
+
+  radiobutton7 = gtk_radio_button_new_with_mnemonic (NULL, _("Veau"));
+  gtk_widget_show (radiobutton7);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton7, 216, 72);
+  gtk_widget_set_size_request (radiobutton7, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton7), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton7));
+
+  radiobutton6 = gtk_radio_button_new_with_mnemonic (NULL, _("Brebi"));
+  gtk_widget_show (radiobutton6);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton6, 80, 72);
+  gtk_widget_set_size_request (radiobutton6, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton6), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton6));
+
+  OK = gtk_button_new ();
+  gtk_widget_show (OK);
+  gtk_fixed_put (GTK_FIXED (fixed9), OK, 144, 120);
+  gtk_widget_set_size_request (OK, 82, 32);
+
+  alignment7 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment7);
+  gtk_container_add (GTK_CONTAINER (OK), alignment7);
+
+  hbox7 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox7);
+  gtk_container_add (GTK_CONTAINER (alignment7), hbox7);
+
+  image7 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image7);
+  gtk_box_pack_start (GTK_BOX (hbox7), image7, FALSE, FALSE, 0);
+
+  label24 = gtk_label_new_with_mnemonic (_("OK"));
+  gtk_widget_show (label24);
+  gtk_box_pack_start (GTK_BOX (hbox7), label24, FALSE, FALSE, 0);
+
+  retourtype = gtk_button_new ();
+  gtk_widget_show (retourtype);
+  gtk_fixed_put (GTK_FIXED (fixed9), retourtype, 32, 208);
+  gtk_widget_set_size_request (retourtype, 120, 32);
+
+  alignment8 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment8);
+  gtk_container_add (GTK_CONTAINER (retourtype), alignment8);
+
+  hbox8 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox8);
+  gtk_container_add (GTK_CONTAINER (alignment8), hbox8);
+
+  image8 = gtk_image_new_from_stock ("gtk-undo", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image8);
+  gtk_box_pack_start (GTK_BOX (hbox8), image8, FALSE, FALSE, 0);
+
+  label25 = gtk_label_new_with_mnemonic (_("retourner"));
+  gtk_widget_show (label25);
+  gtk_box_pack_start (GTK_BOX (hbox8), label25, FALSE, FALSE, 0);
+
+  g_signal_connect ((gpointer) radiobutton7, "toggled",
+                    G_CALLBACK (on_radiobutton7_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton6, "toggled",
+                    G_CALLBACK (on_radiobutton6_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) OK, "clicked",
+                    G_CALLBACK (on_OK_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) retourtype, "clicked",
+                    G_CALLBACK (on_retourtype_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (type, type, "type");
+  GLADE_HOOKUP_OBJECT (type, fixed9, "fixed9");
+  GLADE_HOOKUP_OBJECT (type, label23, "label23");
+  GLADE_HOOKUP_OBJECT (type, radiobutton7, "radiobutton7");
+  GLADE_HOOKUP_OBJECT (type, radiobutton6, "radiobutton6");
+  GLADE_HOOKUP_OBJECT (type, OK, "OK");
+  GLADE_HOOKUP_OBJECT (type, alignment7, "alignment7");
+  GLADE_HOOKUP_OBJECT (type, hbox7, "hbox7");
+  GLADE_HOOKUP_OBJECT (type, image7, "image7");
+  GLADE_HOOKUP_OBJECT (type, label24, "label24");
+  GLADE_HOOKUP_OBJECT (type, retourtype, "retourtype");
+  GLADE_HOOKUP_OBJECT (type, alignment8, "alignment8");
+  GLADE_HOOKUP_OBJECT (type, hbox8, "hbox8");
+  GLADE_HOOKUP_OBJECT (type, image8, "image8");
+  GLADE_HOOKUP_OBJECT (type, label25, "label25");
+
+  return type;
+}
+

@@ -331,6 +331,10 @@ create_afficher (void)
   GtkWidget *fixed6;
   GtkWidget *treeview1;
   GtkWidget *retouraff;
+  GtkWidget *alignment6;
+  GtkWidget *hbox6;
+  GtkWidget *image6;
+  GtkWidget *label22;
 
   afficher = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (afficher), _("afficher"));
@@ -344,10 +348,26 @@ create_afficher (void)
   gtk_fixed_put (GTK_FIXED (fixed6), treeview1, 176, 32);
   gtk_widget_set_size_request (treeview1, 300, 200);
 
-  retouraff = gtk_button_new_with_mnemonic (_("button1"));
+  retouraff = gtk_button_new ();
   gtk_widget_show (retouraff);
-  gtk_fixed_put (GTK_FIXED (fixed6), retouraff, 152, 272);
-  gtk_widget_set_size_request (retouraff, 66, 29);
+  gtk_fixed_put (GTK_FIXED (fixed6), retouraff, 248, 256);
+  gtk_widget_set_size_request (retouraff, 112, 32);
+
+  alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment6);
+  gtk_container_add (GTK_CONTAINER (retouraff), alignment6);
+
+  hbox6 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox6);
+  gtk_container_add (GTK_CONTAINER (alignment6), hbox6);
+
+  image6 = gtk_image_new_from_stock ("gtk-undo", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image6);
+  gtk_box_pack_start (GTK_BOX (hbox6), image6, FALSE, FALSE, 0);
+
+  label22 = gtk_label_new_with_mnemonic (_("retourner"));
+  gtk_widget_show (label22);
+  gtk_box_pack_start (GTK_BOX (hbox6), label22, FALSE, FALSE, 0);
 
   g_signal_connect ((gpointer) treeview1, "row_activated",
                     G_CALLBACK (on_treeview1_row_activated),
@@ -361,6 +381,10 @@ create_afficher (void)
   GLADE_HOOKUP_OBJECT (afficher, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (afficher, treeview1, "treeview1");
   GLADE_HOOKUP_OBJECT (afficher, retouraff, "retouraff");
+  GLADE_HOOKUP_OBJECT (afficher, alignment6, "alignment6");
+  GLADE_HOOKUP_OBJECT (afficher, hbox6, "hbox6");
+  GLADE_HOOKUP_OBJECT (afficher, image6, "image6");
+  GLADE_HOOKUP_OBJECT (afficher, label22, "label22");
 
   return afficher;
 }
@@ -592,5 +616,92 @@ create_modifier (void)
   GLADE_HOOKUP_OBJECT (modifier, radiobutton4, "radiobutton4");
 
   return modifier;
+}
+
+GtkWidget*
+create_type (void)
+{
+  GtkWidget *type;
+  GtkWidget *fixed9;
+  GtkWidget *label23;
+  GtkWidget *radiobutton7;
+  GSList *radiobutton7_group = NULL;
+  GtkWidget *radiobutton6;
+  GtkWidget *OK;
+  GtkWidget *alignment7;
+  GtkWidget *hbox7;
+  GtkWidget *image7;
+  GtkWidget *label24;
+
+  type = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (type), _("type"));
+
+  fixed9 = gtk_fixed_new ();
+  gtk_widget_show (fixed9);
+  gtk_container_add (GTK_CONTAINER (type), fixed9);
+
+  label23 = gtk_label_new (_("S\303\251lectionner le type des troupeaux :"));
+  gtk_widget_show (label23);
+  gtk_fixed_put (GTK_FIXED (fixed9), label23, 56, 16);
+  gtk_widget_set_size_request (label23, 248, 32);
+
+  radiobutton7 = gtk_radio_button_new_with_mnemonic (NULL, _("Veau"));
+  gtk_widget_show (radiobutton7);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton7, 216, 72);
+  gtk_widget_set_size_request (radiobutton7, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton7), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton7));
+
+  radiobutton6 = gtk_radio_button_new_with_mnemonic (NULL, _("Brebi"));
+  gtk_widget_show (radiobutton6);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton6, 80, 72);
+  gtk_widget_set_size_request (radiobutton6, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton6), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton6));
+
+  OK = gtk_button_new ();
+  gtk_widget_show (OK);
+  gtk_fixed_put (GTK_FIXED (fixed9), OK, 144, 120);
+  gtk_widget_set_size_request (OK, 82, 32);
+
+  alignment7 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment7);
+  gtk_container_add (GTK_CONTAINER (OK), alignment7);
+
+  hbox7 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox7);
+  gtk_container_add (GTK_CONTAINER (alignment7), hbox7);
+
+  image7 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image7);
+  gtk_box_pack_start (GTK_BOX (hbox7), image7, FALSE, FALSE, 0);
+
+  label24 = gtk_label_new_with_mnemonic (_("OK"));
+  gtk_widget_show (label24);
+  gtk_box_pack_start (GTK_BOX (hbox7), label24, FALSE, FALSE, 0);
+
+  g_signal_connect ((gpointer) radiobutton7, "toggled",
+                    G_CALLBACK (on_radiobutton7_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton6, "toggled",
+                    G_CALLBACK (on_radiobutton6_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) OK, "clicked",
+                    G_CALLBACK (on_OK_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (type, type, "type");
+  GLADE_HOOKUP_OBJECT (type, fixed9, "fixed9");
+  GLADE_HOOKUP_OBJECT (type, label23, "label23");
+  GLADE_HOOKUP_OBJECT (type, radiobutton7, "radiobutton7");
+  GLADE_HOOKUP_OBJECT (type, radiobutton6, "radiobutton6");
+  GLADE_HOOKUP_OBJECT (type, OK, "OK");
+  GLADE_HOOKUP_OBJECT (type, alignment7, "alignment7");
+  GLADE_HOOKUP_OBJECT (type, hbox7, "hbox7");
+  GLADE_HOOKUP_OBJECT (type, image7, "image7");
+  GLADE_HOOKUP_OBJECT (type, label24, "label24");
+
+  return type;
 }
 

@@ -6,3 +6,4 @@ GtkWidget* create_Mestroupeaux (void);
 GtkWidget* create_Ajouterunanimal (void);
 GtkWidget* create_afficher (void);
 GtkWidget* create_modifier (void);
+GtkWidget* create_type (void);

@@ -95,3 +95,21 @@ on_radiobutton7_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 
+
+void
+on_radiobutton7_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+
+
+void
+on_OK_clicked                          (GtkWidget       *objet,
+                                        gpointer         user_data);
+
+void
+on_retourtype_clicked                  (GtkWidget       *objet,
+                                        gpointer         user_data);
