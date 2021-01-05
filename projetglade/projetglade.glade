@@ -707,16 +707,16 @@ femelle</property>
 
       <child>
 	<widget class="GtkButton" id="retouraff">
-	  <property name="width_request">120</property>
+	  <property name="width_request">112</property>
 	  <property name="height_request">32</property>
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_retour_clicked" last_modification_time="Tue, 29 Dec 2020 15:42:58 GMT"/>
+	  <signal name="clicked" handler="on_retouraff_clicked" last_modification_time="Tue, 05 Jan 2021 19:45:10 GMT"/>
 
 	  <child>
-	    <widget class="GtkAlignment" id="alignment3">
+	    <widget class="GtkAlignment" id="alignment6">
 	      <property name="visible">True</property>
 	      <property name="xalign">0.5</property>
 	      <property name="yalign">0.5</property>
@@ -728,13 +728,13 @@ femelle</property>
 	      <property name="right_padding">0</property>
 
 	      <child>
-		<widget class="GtkHBox" id="hbox3">
+		<widget class="GtkHBox" id="hbox6">
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
 		  <property name="spacing">2</property>
 
 		  <child>
-		    <widget class="GtkImage" id="image3">
+		    <widget class="GtkImage" id="image6">
 		      <property name="visible">True</property>
 		      <property name="stock">gtk-undo</property>
 		      <property name="icon_size">4</property>
@@ -751,7 +751,7 @@ femelle</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label11">
+		    <widget class="GtkLabel" id="label22">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">retourner</property>
 		      <property name="use_underline">True</property>
@@ -780,8 +780,8 @@ femelle</property>
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">280</property>
-	  <property name="y">280</property>
+	  <property name="x">248</property>
+	  <property name="y">256</property>
 	</packing>
       </child>
     </widget>
@@ -1097,22 +1097,17 @@ femelle</property>
 	  <property name="visible">True</property>
 
 	  <child>
-	    <widget class="GtkRadioButton" id="radiobutton6">
-	      <property name="width_request">116</property>
-	      <property name="height_request">24</property>
+	    <widget class="GtkComboBox" id="combobox2">
+	      <property name="width_request">152</property>
+	      <property name="height_request">32</property>
 	      <property name="visible">True</property>
-	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Brebi</property>
-	      <property name="use_underline">True</property>
-	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="items" translatable="yes">Brebi
+Veau</property>
+	      <property name="add_tearoffs">False</property>
 	      <property name="focus_on_click">True</property>
-	      <property name="active">False</property>
-	      <property name="inconsistent">False</property>
-	      <property name="draw_indicator">True</property>
-	      <signal name="toggled" handler="on_radiobutton6_toggled" last_modification_time="Sat, 02 Jan 2021 10:58:28 GMT"/>
 	    </widget>
 	    <packing>
-	      <property name="x">24</property>
+	      <property name="x">16</property>
 	      <property name="y">0</property>
 	    </packing>
 	  </child>
@@ -1310,27 +1305,6 @@ femelle</property>
       </child>
 
       <child>
-	<widget class="GtkRadioButton" id="radiobutton4">
-	  <property name="width_request">116</property>
-	  <property name="height_request">24</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">male</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <property name="active">False</property>
-	  <property name="inconsistent">False</property>
-	  <property name="draw_indicator">True</property>
-	  <signal name="toggled" handler="on_radiobutton4_toggled" last_modification_time="Sat, 02 Jan 2021 10:51:57 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">88</property>
-	  <property name="y">136</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkRadioButton" id="radiobutton5">
 	  <property name="width_request">116</property>
 	  <property name="height_request">24</property>
@@ -1343,7 +1317,6 @@ femelle</property>
 	  <property name="active">False</property>
 	  <property name="inconsistent">False</property>
 	  <property name="draw_indicator">True</property>
-	  <property name="group">radiobutton4</property>
 	  <signal name="toggled" handler="on_radiobutton5_toggled" last_modification_time="Sat, 02 Jan 2021 10:51:12 GMT"/>
 	</widget>
 	<packing>
@@ -1353,24 +1326,24 @@ femelle</property>
       </child>
 
       <child>
-	<widget class="GtkRadioButton" id="radiobutton7">
+	<widget class="GtkRadioButton" id="radiobutton4">
 	  <property name="width_request">116</property>
 	  <property name="height_request">24</property>
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Veau</property>
+	  <property name="label" translatable="yes">male</property>
 	  <property name="use_underline">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
 	  <property name="active">False</property>
 	  <property name="inconsistent">False</property>
 	  <property name="draw_indicator">True</property>
-	  <property name="group">radiobutton4</property>
-	  <signal name="toggled" handler="on_radiobutton7_toggled" last_modification_time="Sat, 02 Jan 2021 11:01:19 GMT"/>
+	  <property name="group">radiobutton5</property>
+	  <signal name="toggled" handler="on_radiobutton4_toggled" last_modification_time="Sat, 02 Jan 2021 10:51:57 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">216</property>
-	  <property name="y">168</property>
+	  <property name="x">88</property>
+	  <property name="y">136</property>
 	</packing>
       </child>
     </widget>

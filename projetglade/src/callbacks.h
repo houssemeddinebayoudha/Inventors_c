@@ -93,3 +93,5 @@ on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
 void
 on_radiobutton7_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
+
+

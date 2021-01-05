@@ -39,9 +39,8 @@ on_buttonAjout_clicked                 (GtkWidget       *objet,
                                         gpointer         user_data)
 { 
  GtkWidget *Mestroupeaux, *Ajouterunanimal;
-Mestroupeaux=lookup_widget(objet, " Mestroupeaux");
+Mestroupeaux=lookup_widget(objet, "Mestroupeaux");
 gtk_widget_destroy(Mestroupeaux);
-Ajouterunanimal=lookup_widget(objet, "Ajouterunanimal");
 Ajouterunanimal=create_Ajouterunanimal();
 gtk_widget_show(Ajouterunanimal);
 
@@ -54,9 +53,9 @@ on_buttonModifier_clicked              (GtkWidget       *objet,
                                         gpointer         user_data)
 {
 GtkWidget *Mestroupeaux, *modifier;
-Mestroupeaux=lookup_widget(objet, " Mestroupeaux");
+Mestroupeaux=lookup_widget(objet, "Mestroupeaux");
 gtk_widget_destroy(Mestroupeaux);
-modifier=lookup_widget(objet, "modifier");
+
 modifier=create_modifier();
 gtk_widget_show(modifier);
 
@@ -176,7 +175,7 @@ on_retourmodif_clicked                 (GtkWidget       *objet,
 GtkWidget *Mestroupeaux,*modifier;
 modifier=lookup_widget(objet,"modifier");
 gtk_widget_destroy(modifier);
-modifier=create_Mestroupeaux();
+Mestroupeaux=create_Mestroupeaux();
 gtk_widget_show(Mestroupeaux);
 
 }
@@ -191,24 +190,29 @@ on_buttonmodifier_clicked              (GtkWidget      *objet,
 	GtkWidget *Jour;
 	GtkWidget *Mois;
 	GtkWidget *Annee;
+	GtkWidget *Combobox2;
 	GtkWidget *modifier;
 animal a;
+char idd[10];
 modifier =lookup_widget(objet, "modifier" );
  id=lookup_widget(objet, "id");	
  id1=lookup_widget(objet, "id1");
  Jour=lookup_widget(objet,"Jour");
  Mois=lookup_widget(objet,"Mois");
  Annee=lookup_widget(objet,"Annee");
+Combobox2=lookup_widget(objet,"combobox2");
+ 
  
 
  strcpy(a.id,gtk_entry_get_text(GTK_ENTRY(id1)));
  a.date_naiss.jour=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Jour));
  a.date_naiss.mois=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Mois));
  a.date_naiss.annee=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Annee));
+ strcpy(a.sexe,gtk_combo_box_get_active_text(GTK_COMBO_BOX(Combobox2)));
  strcpy(a.sexe,sexemodif);
- strcpy(a.type,tempmodif);
-strcpy(id1,gtk_entry_get_text(GTK_ENTRY(id)));
-modifie(id1,a);
+
+strcpy(idd,gtk_entry_get_text(GTK_ENTRY(id)));
+modifie(idd,a);
 }
 
 
@@ -230,20 +234,5 @@ if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 }
 
 
-void
-on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
- strcpy(tempmodif,"brebi");
-}
 
-
-void
-on_radiobutton7_toggled                (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
- strcpy(tempmodif,"veau");
-}
 

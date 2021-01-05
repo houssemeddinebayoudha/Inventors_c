@@ -52,7 +52,7 @@ void supprimer (char id[10]) {
 animal a;
 FILE*f;
 
-fopen("troupeaux.txt","r+");
+f= fopen("troupeaux.txt","r+");
 if (f!=NULL){
 FILE* f2;
 f2= fopen ("troupeauxtmp.txt","a");
@@ -116,7 +116,7 @@ animal a;
 FILE* f;
 
 
-fopen("troupeaux.txt" ,"r+");
+f=fopen("troupeaux.txt" ,"r+");
 if (f==NULL){
 	return;
 	}else{
@@ -139,7 +139,7 @@ FILE*f;
 int i;
 animal a;
 
-fopen("troupeaux.txt","r+");
+f=fopen("troupeaux.txt","r+");
 if (f!=NULL){
 
 while (fscanf(f,"%s %s %s %d %d %d", a.id,a.type, a.sexe, &(a.date_naiss.jour), &(a.date_naiss.mois), &(a.date_naiss.annee))!=EOF){
