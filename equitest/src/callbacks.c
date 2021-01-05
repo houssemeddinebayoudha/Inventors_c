@@ -80,22 +80,36 @@ void
 on_button6_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
-GtkWidget *id,*marque,*home,*actual;
+GtkWidget *id,*marque,*home,*actual,*jour,*mois,*annee;
 char text[20];
 equi e;
 id=lookup_widget (button, "id");
 marque=lookup_widget (button, "marque");
 actual=lookup_widget (button, "ajout");
-
+jour=lookup_widget (button, "jour");
+mois=lookup_widget (button, "combobox1");
+annee=lookup_widget(button, "annee");
 strcpy(e.id,gtk_entry_get_text(GTK_ENTRY(id)));
 strcpy(e.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 
 e.etat=x;
 e.dispo=i;
+e.date_daj.jour=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (jour));
+e.date_daj.mois=atoi(gtk_combo_box_get_active_text(GTK_COMBO_BOX(mois)));
+e.date_daj.annee=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (annee));
+equi e1=chercher(e.id);
+
+
+if((e1.dispo==10)&&(strlen(e.id)>0)){
 ajouter(e);
-home=create_home();
+home=create_success();
+gtk_widget_destroy(actual);
+gtk_widget_show(home);}
+else{
+home=create_failed();
 gtk_widget_destroy(actual);
 gtk_widget_show(home);
+}
 }
 
 
@@ -261,5 +275,30 @@ on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
 {
 if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
 i=1;
+}
+
+
+void
+on_retoursuccess_clicked               (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *home,*actual;
+actual=lookup_widget(button,"success");
+gtk_widget_destroy(actual);
+home=create_home();
+gtk_widget_show(home);
+
+}
+
+
+void
+on_errorredo_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"failed");
+gtk_widget_destroy(actual);
+home=create_ajout();
+gtk_widget_show(home);
+
 }
 

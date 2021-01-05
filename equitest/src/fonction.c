@@ -8,7 +8,8 @@ struct tm tm = *localtime(&t);
 f=fopen("equipement.txt","a+");
 
 if (f!=NULL){
-fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,e.dispo,tm.tm_mday,tm.tm_mon+1,tm.tm_year+1900);
+//fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,e.dispo,tm.tm_mday,tm.tm_mon+1,tm.tm_year+1900);
+fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,e.dispo,e.date_daj.jour,e.date_daj.mois,e.date_daj.annee);
 }
 
 fclose(f);
@@ -79,6 +80,7 @@ break;
 }
 if(trouv==1){
 fclose(f);
+e.dispo=3;
 return(e);
 }
 else{
