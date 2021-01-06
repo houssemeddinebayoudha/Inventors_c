@@ -9,8 +9,10 @@
 #include "support.h"
 #include "fonction.h"
 char x='f';
-int i=0;
+int i=1;
 char x2='f';
+int kd=0;
+int j=1;
 void
 on_button1_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
@@ -93,7 +95,9 @@ strcpy(e.id,gtk_entry_get_text(GTK_ENTRY(id)));
 strcpy(e.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 
 e.etat=x;
+x='f';
 e.dispo=i;
+i=1;
 e.date_daj.jour=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (jour));
 e.date_daj.mois=atoi(gtk_combo_box_get_active_text(GTK_COMBO_BOX(mois)));
 e.date_daj.annee=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (annee));
@@ -161,7 +165,9 @@ id=lookup_widget (button,"id");
 strcpy(idd,gtk_entry_get_text(GTK_ENTRY(id)));
 
 e=x2;
-modifier(idd,e);
+x2='f';
+modifier(idd,e,kd);
+kd=0;
 }
 
 
@@ -273,7 +279,7 @@ on_radiobutton4_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
-i=1;
+i=0;
 }
 
 
@@ -388,4 +394,167 @@ gtk_entry_set_text(idd,id);
 }
 
 
+
+
+void
+on_abse_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *actual,*next;
+actual=lookup_widget(button,"Absence");
+next=create_MrqAbs();
+gtk_widget_destroy(actual);
+gtk_widget_show(next);
+}
+
+
+void
+on_taux_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *actual,*next;
+
+actual=lookup_widget(button,"Absence");
+next=create_txs();
+gtk_widget_destroy(actual);
+gtk_widget_show(next);
+
+
+
+}
+
+
+void
+on_button12_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *actual,*next,*jour,*mois,*annee,*id;
+int Jour,Mois,Annee;
+char idd[20];
+actual=lookup_widget(button,"MrqAbs");
+jour=lookup_widget (button, "jour");
+mois=lookup_widget (button, "mois");
+annee=lookup_widget (button, "annee");
+id=lookup_widget (button, "id");
+Jour=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (jour));
+Mois=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (mois));
+Annee=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (annee));
+strcpy(idd,gtk_entry_get_text(GTK_ENTRY(id)));
+marquer_abse(atoi(idd),Jour,Mois,Annee,j);
+next=create_Absence();
+gtk_widget_destroy(actual);
+gtk_widget_show(next);
+
+
+}
+
+
+void
+on_abes_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *actual,*next;
+actual=lookup_widget(button,"home");
+next=create_Absence();
+gtk_widget_destroy(actual);
+gtk_widget_show(next);
+
+}
+
+
+void
+on_backv1_clicked                      (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"Absence");
+gtk_widget_destroy(actual);
+home=create_home();
+gtk_widget_show(home);
+
+}
+
+
+void
+on_gobackv2_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"MrqAbs");
+gtk_widget_destroy(actual);
+home=create_Absence();
+gtk_widget_show(home);
+
+}
+
+
+void
+on_go_back_clicked                     (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *home,*actual;
+actual=lookup_widget(button,"tauxdab");
+gtk_widget_destroy(actual);
+home=create_Absence();
+gtk_widget_show(home);
+
+}
+
+
+void
+on_tx_clicked                          (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *treeview,*entry;
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"txs");
+entry=lookup_widget(button,"entry1");
+int i=atoi(gtk_entry_get_text(GTK_ENTRY(entry)));
+gtk_widget_destroy(actual);
+home=create_tauxdab();
+
+gtk_widget_show(home);
+
+
+treeview=lookup_widget(home,"treeview2");
+
+
+tauxdabs(i,9,treeview);
+
+}
+
+
+void
+on_absss_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+j=0;
+
+
+}
+
+
+void
+on_press_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+j=1;
+
+}
+
+
+void
+on_nondispo_toggled                    (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+kd=0;
+
+}
+
+
+void
+on_dispo_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+kd=1;
+
+}
 

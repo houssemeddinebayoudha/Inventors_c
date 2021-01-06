@@ -101,3 +101,51 @@ on_modif_clicked                       (GtkWidget       *button,
                                         gpointer         user_data);
 
 
+
+void
+on_abse_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_taux_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button12_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_abes_clicked                        (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_backv1_clicked                      (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_gobackv2_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_go_back_clicked                     (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_tx_clicked                          (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_absss_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_press_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_nondispo_toggled                    (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_dispo_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);

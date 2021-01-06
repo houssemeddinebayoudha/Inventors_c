@@ -9,3 +9,7 @@ GtkWidget* create_modifier (void);
 GtkWidget* create_window1 (void);
 GtkWidget* create_success (void);
 GtkWidget* create_failed (void);
+GtkWidget* create_Absence (void);
+GtkWidget* create_MrqAbs (void);
+GtkWidget* create_tauxdab (void);
+GtkWidget* create_txs (void);

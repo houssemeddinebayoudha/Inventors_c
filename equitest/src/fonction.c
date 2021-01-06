@@ -15,7 +15,7 @@ fprintf(f,"%s %s %c %d %d %d %d\n",e.id,e.marque,e.etat,e.dispo,e.date_daj.jour,
 fclose(f);
 }
 
-void modifier(char id[20],char etat){
+void modifier(char id[20],char etat,int dispo){
 FILE* f;
 
 equi e;
@@ -25,8 +25,10 @@ if (f!=NULL){
 FILE* f2;
 f2=fopen("equipementtmp.txt","a");
 while(fscanf(f,"%s %s %c %d %d %d %d",e.id,e.marque,&e.etat,&e.dispo,&(e.date_daj.jour),&(e.date_daj.mois),&(e.date_daj.annee))!=EOF){
-if(strcmp(e.id,id)==0)
+if(strcmp(e.id,id)==0){
 e.etat=etat;
+e.dispo=dispo;
+}
 fprintf(f2,"%s %s %c %d %d %d %d \n",e.id,e.marque,e.etat,e.dispo,e.date_daj.jour,e.date_daj.mois,e.date_daj.annee);
 }
 fclose(f);
@@ -159,3 +161,88 @@ gtk_tree_view_set_model(GTK_TREE_VIEW(liste) ,GTK_TREE_MODEL (store));
 g_object_unref (store);
 }
 }
+void marquer_abse(int id,int jour,int mois,int annee,int abs){
+FILE* f;
+f=fopen("abs.txt","a");
+if (f!=NULL){
+fprintf(f,"%d %d %d %d %d\n",id,jour,mois,annee,abs);
+
+
+}
+fclose(f);
+}
+
+void tauxdabs(int annee,int nbr,GtkWidget *liste){
+
+
+char tauxx[30];
+
+char Mois[10];
+
+GtkCellRenderer *renderer;
+GtkTreeViewColumn *column;
+GtkTreeIter iter;
+GtkListStore *store;
+
+store=NULL;
+
+store=gtk_tree_view_get_model(liste);
+
+if(store==NULL){
+renderer= gtk_cell_renderer_text_new();
+column= gtk_tree_view_column_new_with_attributes(" mois",renderer,"text",EMOIS, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste),column);
+
+renderer= gtk_cell_renderer_text_new();
+column= gtk_tree_view_column_new_with_attributes(" taux",renderer,"text",ETAUX, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste),column);
+
+}
+
+
+store=gtk_list_store_new (TESTS, G_TYPE_STRING, G_TYPE_STRING);
+
+
+
+int taux[11];
+float t[11];
+int id,jour,mois,nanne,val;
+FILE* f;
+f=fopen("abs.txt","r+");
+if(f!=NULL){
+for(int i=0;i<12;i++){
+taux[i]=0;
+}
+while(fscanf(f,"%d %d %d %d %d",&id,&jour,&mois,&nanne,&val)!=EOF){
+if(nanne==annee){
+if(val==0){
+taux[mois-1]++;
+}
+}
+}
+int j=0;
+do{
+
+t[j]=(float)(taux[j]*100/(nbr*30));
+sprintf(Mois,"%d",j+1);
+sprintf(tauxx,"%.2f",t[j]);
+gtk_list_store_append (store,&iter);
+gtk_list_store_set (store,&iter,EMOIS,Mois,ETAUX,tauxx,-1);
+j++;
+}
+while(j<12);
+fclose(f);
+gtk_tree_view_set_model(GTK_TREE_VIEW(liste) ,GTK_TREE_MODEL (store));
+g_object_unref (store);
+
+
+}
+
+
+}
+
+
+
+
+
+
