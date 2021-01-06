@@ -214,7 +214,7 @@ Combobox2=lookup_widget(objet,"combobox2");
  a.date_naiss.jour=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Jour));
  a.date_naiss.mois=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Mois));
  a.date_naiss.annee=gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(Annee));
- strcpy(a.sexe,gtk_combo_box_get_active_text(GTK_COMBO_BOX(Combobox2)));
+ strcpy(a.type,gtk_combo_box_get_active_text(GTK_COMBO_BOX(Combobox2)));
  strcpy(a.sexe,sexemodif);
 
 strcpy(idd,gtk_entry_get_text(GTK_ENTRY(id)));
@@ -257,7 +257,7 @@ on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
- strcpy(typpe,"Brebi");
+ strcpy(typpe,"brebi");
 }
 
 
@@ -267,10 +267,14 @@ void
 on_OK_clicked                          (GtkWidget       *objet,
                                         gpointer         user_data)
 {
-	GtkWidget *OK;
-animal a;
-OK =lookup_widget(objet, "OK" );
- strcpy(a.type,typpe);
+	GtkWidget *OK,*l;
+	
+ char ch[40];
+ OK =lookup_widget(objet, "OK" );
+ int k=nbr_de_trp_chaq_type(typpe);
+ l=lookup_widget(objet,"label26");
+sprintf(ch,"Le nombre de %s est %d",typpe,k);
+gtk_label_set_text(GTK_LABEL(l),ch);
 }
 
 
