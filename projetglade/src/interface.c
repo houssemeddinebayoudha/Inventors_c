@@ -31,14 +31,30 @@ create_Mestroupeaux (void)
 {
   GtkWidget *Mestroupeaux;
   GtkWidget *fixed1;
+  GtkWidget *fixed2;
+  GtkWidget *fixed3;
+  GtkWidget *buttontype;
+  GtkWidget *alignment12;
+  GtkWidget *hbox12;
+  GtkWidget *image12;
+  GtkWidget *label30;
+  GtkWidget *buttonModifier;
+  GtkWidget *alignment10;
+  GtkWidget *hbox10;
+  GtkWidget *image10;
+  GtkWidget *label28;
   GtkWidget *fixed4;
   GtkWidget *buttonAfficher;
-  GtkWidget *fixed3;
-  GtkWidget *fixed2;
-  GtkWidget *label1;
-  GtkWidget *buttontype;
-  GtkWidget *buttonModifier;
+  GtkWidget *alignment11;
+  GtkWidget *hbox11;
+  GtkWidget *image11;
+  GtkWidget *label29;
   GtkWidget *buttonAjout;
+  GtkWidget *alignment9;
+  GtkWidget *hbox9;
+  GtkWidget *image9;
+  GtkWidget *label27;
+  GtkWidget *label1;
 
   Mestroupeaux = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (Mestroupeaux), _("Mestroupeaux"));
@@ -46,55 +62,120 @@ create_Mestroupeaux (void)
   fixed1 = gtk_fixed_new ();
   gtk_widget_show (fixed1);
   gtk_container_add (GTK_CONTAINER (Mestroupeaux), fixed1);
-
-  fixed4 = gtk_fixed_new ();
-  gtk_widget_show (fixed4);
-  gtk_fixed_put (GTK_FIXED (fixed1), fixed4, 48, 160);
-  gtk_widget_set_size_request (fixed4, 50, 50);
-
-  buttonAfficher = gtk_button_new_with_mnemonic (_("Afficher les coordon\303\251es de mes troupeaux"));
-  gtk_widget_show (buttonAfficher);
-  gtk_fixed_put (GTK_FIXED (fixed4), buttonAfficher, 152, 88);
-  gtk_widget_set_size_request (buttonAfficher, 296, 40);
-
-  fixed3 = gtk_fixed_new ();
-  gtk_widget_show (fixed3);
-  gtk_fixed_put (GTK_FIXED (fixed1), fixed3, 176, 88);
-  gtk_widget_set_size_request (fixed3, 50, 50);
+  gtk_widget_set_size_request (fixed1, 500, 400);
 
   fixed2 = gtk_fixed_new ();
   gtk_widget_show (fixed2);
   gtk_fixed_put (GTK_FIXED (fixed1), fixed2, 120, 144);
   gtk_widget_set_size_request (fixed2, 50, 50);
 
+  fixed3 = gtk_fixed_new ();
+  gtk_widget_show (fixed3);
+  gtk_fixed_put (GTK_FIXED (fixed1), fixed3, 176, 88);
+  gtk_widget_set_size_request (fixed3, 50, 50);
+
+  buttontype = gtk_button_new ();
+  gtk_widget_show (buttontype);
+  gtk_fixed_put (GTK_FIXED (fixed1), buttontype, 88, 304);
+  gtk_widget_set_size_request (buttontype, 312, 48);
+
+  alignment12 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment12);
+  gtk_container_add (GTK_CONTAINER (buttontype), alignment12);
+
+  hbox12 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox12);
+  gtk_container_add (GTK_CONTAINER (alignment12), hbox12);
+
+  image12 = gtk_image_new_from_stock ("gtk-about", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image12);
+  gtk_box_pack_start (GTK_BOX (hbox12), image12, FALSE, FALSE, 0);
+
+  label30 = gtk_label_new_with_mnemonic (_("Le nombre de troupeaux de chaque type"));
+  gtk_widget_show (label30);
+  gtk_box_pack_start (GTK_BOX (hbox12), label30, FALSE, FALSE, 0);
+
+  buttonModifier = gtk_button_new ();
+  gtk_widget_show (buttonModifier);
+  gtk_fixed_put (GTK_FIXED (fixed1), buttonModifier, 88, 160);
+  gtk_widget_set_size_request (buttonModifier, 312, 48);
+
+  alignment10 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment10);
+  gtk_container_add (GTK_CONTAINER (buttonModifier), alignment10);
+
+  hbox10 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox10);
+  gtk_container_add (GTK_CONTAINER (alignment10), hbox10);
+
+  image10 = gtk_image_new_from_stock ("gtk-refresh", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image10);
+  gtk_box_pack_start (GTK_BOX (hbox10), image10, FALSE, FALSE, 0);
+
+  label28 = gtk_label_new_with_mnemonic (_("Modifier les coordonn\303\251es d'un animal"));
+  gtk_widget_show (label28);
+  gtk_box_pack_start (GTK_BOX (hbox10), label28, FALSE, FALSE, 0);
+
+  fixed4 = gtk_fixed_new ();
+  gtk_widget_show (fixed4);
+  gtk_fixed_put (GTK_FIXED (fixed1), fixed4, 48, 160);
+  gtk_widget_set_size_request (fixed4, 50, 50);
+
+  buttonAfficher = gtk_button_new ();
+  gtk_widget_show (buttonAfficher);
+  gtk_fixed_put (GTK_FIXED (fixed4), buttonAfficher, 40, 80);
+  gtk_widget_set_size_request (buttonAfficher, 312, 48);
+
+  alignment11 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment11);
+  gtk_container_add (GTK_CONTAINER (buttonAfficher), alignment11);
+
+  hbox11 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox11);
+  gtk_container_add (GTK_CONTAINER (alignment11), hbox11);
+
+  image11 = gtk_image_new_from_stock ("gtk-print-preview", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image11);
+  gtk_box_pack_start (GTK_BOX (hbox11), image11, FALSE, FALSE, 0);
+
+  label29 = gtk_label_new_with_mnemonic (_("Afficher les coordon\303\251es de mes troupeaux"));
+  gtk_widget_show (label29);
+  gtk_box_pack_start (GTK_BOX (hbox11), label29, FALSE, FALSE, 0);
+
+  buttonAjout = gtk_button_new ();
+  gtk_widget_show (buttonAjout);
+  gtk_fixed_put (GTK_FIXED (fixed1), buttonAjout, 88, 88);
+  gtk_widget_set_size_request (buttonAjout, 312, 48);
+
+  alignment9 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment9);
+  gtk_container_add (GTK_CONTAINER (buttonAjout), alignment9);
+
+  hbox9 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox9);
+  gtk_container_add (GTK_CONTAINER (alignment9), hbox9);
+
+  image9 = gtk_image_new_from_stock ("gtk-add", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image9);
+  gtk_box_pack_start (GTK_BOX (hbox9), image9, FALSE, FALSE, 0);
+
+  label27 = gtk_label_new_with_mnemonic (_("Ajouter un animal"));
+  gtk_widget_show (label27);
+  gtk_box_pack_start (GTK_BOX (hbox9), label27, FALSE, FALSE, 0);
+
   label1 = gtk_label_new (_("Gestion des troupeaux"));
   gtk_widget_show (label1);
-  gtk_fixed_put (GTK_FIXED (fixed1), label1, 248, 24);
-  gtk_widget_set_size_request (label1, 232, 32);
+  gtk_fixed_put (GTK_FIXED (fixed1), label1, 104, 8);
+  gtk_widget_set_size_request (label1, 280, 56);
 
-  buttontype = gtk_button_new_with_mnemonic (_("Le nombre de troupeaux de chaque type"));
-  gtk_widget_show (buttontype);
-  gtk_fixed_put (GTK_FIXED (fixed1), buttontype, 200, 320);
-  gtk_widget_set_size_request (buttontype, 296, 40);
-
-  buttonModifier = gtk_button_new_with_mnemonic (_("Modifier les coordonn\303\251es d'un animal"));
-  gtk_widget_show (buttonModifier);
-  gtk_fixed_put (GTK_FIXED (fixed1), buttonModifier, 200, 160);
-  gtk_widget_set_size_request (buttonModifier, 296, 40);
-
-  buttonAjout = gtk_button_new_with_mnemonic (_("Ajouter un animal"));
-  gtk_widget_show (buttonAjout);
-  gtk_fixed_put (GTK_FIXED (fixed1), buttonAjout, 200, 88);
-  gtk_widget_set_size_request (buttonAjout, 296, 40);
-
-  g_signal_connect ((gpointer) buttonAfficher, "clicked",
-                    G_CALLBACK (on_buttonAfficher_clicked),
-                    NULL);
   g_signal_connect ((gpointer) buttontype, "clicked",
                     G_CALLBACK (on_buttontype_clicked),
                     NULL);
   g_signal_connect ((gpointer) buttonModifier, "clicked",
                     G_CALLBACK (on_buttonModifier_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) buttonAfficher, "clicked",
+                    G_CALLBACK (on_buttonAfficher_clicked),
                     NULL);
   g_signal_connect ((gpointer) buttonAjout, "clicked",
                     G_CALLBACK (on_buttonAjout_clicked),
@@ -103,14 +184,30 @@ create_Mestroupeaux (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Mestroupeaux, Mestroupeaux, "Mestroupeaux");
   GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed1, "fixed1");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed2, "fixed2");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed3, "fixed3");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, buttontype, "buttontype");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, alignment12, "alignment12");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, hbox12, "hbox12");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, image12, "image12");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, label30, "label30");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, buttonModifier, "buttonModifier");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, alignment10, "alignment10");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, hbox10, "hbox10");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, image10, "image10");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, label28, "label28");
   GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (Mestroupeaux, buttonAfficher, "buttonAfficher");
-  GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed3, "fixed3");
-  GLADE_HOOKUP_OBJECT (Mestroupeaux, fixed2, "fixed2");
-  GLADE_HOOKUP_OBJECT (Mestroupeaux, label1, "label1");
-  GLADE_HOOKUP_OBJECT (Mestroupeaux, buttontype, "buttontype");
-  GLADE_HOOKUP_OBJECT (Mestroupeaux, buttonModifier, "buttonModifier");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, alignment11, "alignment11");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, hbox11, "hbox11");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, image11, "image11");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, label29, "label29");
   GLADE_HOOKUP_OBJECT (Mestroupeaux, buttonAjout, "buttonAjout");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, alignment9, "alignment9");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, hbox9, "hbox9");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, image9, "image9");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, label27, "label27");
+  GLADE_HOOKUP_OBJECT (Mestroupeaux, label1, "label1");
 
   return Mestroupeaux;
 }
@@ -127,8 +224,6 @@ create_Ajouterunanimal (void)
   GtkWidget *Mois;
   GtkObject *Annee_adj;
   GtkWidget *Annee;
-  GtkWidget *label9;
-  GtkWidget *label5;
   GtkWidget *retour;
   GtkWidget *alignment2;
   GtkWidget *hbox2;
@@ -139,58 +234,50 @@ create_Ajouterunanimal (void)
   GtkWidget *hbox1;
   GtkWidget *image1;
   GtkWidget *label7;
-  GtkWidget *label4;
-  GtkWidget *label3;
   GtkWidget *label10;
-  GtkWidget *label2;
-  GtkWidget *label6;
-  GtkWidget *radiobutton1;
-  GSList *radiobutton1_group = NULL;
   GtkWidget *radiobutton2;
+  GSList *radiobutton2_group = NULL;
+  GtkWidget *radiobutton1;
+  GtkWidget *label9;
   GtkWidget *combobox1;
+  GtkWidget *label3;
+  GtkWidget *label4;
+  GtkWidget *label5;
+  GtkWidget *label6;
+  GtkWidget *label2;
 
   Ajouterunanimal = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_size_request (Ajouterunanimal, 500, 400);
   gtk_window_set_title (GTK_WINDOW (Ajouterunanimal), _("Ajouterunanimal"));
 
   fixed5 = gtk_fixed_new ();
   gtk_widget_show (fixed5);
   gtk_container_add (GTK_CONTAINER (Ajouterunanimal), fixed5);
+  gtk_widget_set_size_request (fixed5, 500, 400);
 
   id = gtk_entry_new ();
   gtk_widget_show (id);
-  gtk_fixed_put (GTK_FIXED (fixed5), id, 240, 88);
-  gtk_widget_set_size_request (id, 160, 27);
+  gtk_fixed_put (GTK_FIXED (fixed5), id, 224, 104);
+  gtk_widget_set_size_request (id, 176, 32);
   gtk_entry_set_invisible_char (GTK_ENTRY (id), 8226);
 
   Jour_adj = gtk_adjustment_new (1, 1, 31, 1, 10, 10);
   Jour = gtk_spin_button_new (GTK_ADJUSTMENT (Jour_adj), 1, 1);
   gtk_widget_show (Jour);
-  gtk_fixed_put (GTK_FIXED (fixed5), Jour, 184, 144);
+  gtk_fixed_put (GTK_FIXED (fixed5), Jour, 192, 152);
   gtk_widget_set_size_request (Jour, 48, 24);
 
   Mois_adj = gtk_adjustment_new (1, 1, 12, 1, 10, 10);
   Mois = gtk_spin_button_new (GTK_ADJUSTMENT (Mois_adj), 1, 0);
   gtk_widget_show (Mois);
-  gtk_fixed_put (GTK_FIXED (fixed5), Mois, 296, 144);
+  gtk_fixed_put (GTK_FIXED (fixed5), Mois, 296, 152);
   gtk_widget_set_size_request (Mois, 56, 24);
 
   Annee_adj = gtk_adjustment_new (1, 2000, 2021, 1, 10, 10);
   Annee = gtk_spin_button_new (GTK_ADJUSTMENT (Annee_adj), 1, 0);
   gtk_widget_show (Annee);
-  gtk_fixed_put (GTK_FIXED (fixed5), Annee, 432, 144);
+  gtk_fixed_put (GTK_FIXED (fixed5), Annee, 424, 152);
   gtk_widget_set_size_request (Annee, 60, 27);
-
-  label9 = gtk_label_new (_("Sexe :"));
-  gtk_widget_show (label9);
-  gtk_fixed_put (GTK_FIXED (fixed5), label9, 16, 184);
-  gtk_widget_set_size_request (label9, 136, 40);
-  gtk_misc_set_alignment (GTK_MISC (label9), 0.5, 0.53);
-  gtk_misc_set_padding (GTK_MISC (label9), 0, 2);
-
-  label5 = gtk_label_new (_("Ann\303\251e :"));
-  gtk_widget_show (label5);
-  gtk_fixed_put (GTK_FIXED (fixed5), label5, 344, 136);
-  gtk_widget_set_size_request (label5, 96, 40);
 
   retour = gtk_button_new ();
   gtk_widget_show (retour);
@@ -234,51 +321,63 @@ create_Ajouterunanimal (void)
   gtk_widget_show (label7);
   gtk_box_pack_start (GTK_BOX (hbox1), label7, FALSE, FALSE, 0);
 
-  label4 = gtk_label_new (_("Mois :"));
-  gtk_widget_show (label4);
-  gtk_fixed_put (GTK_FIXED (fixed5), label4, 224, 136);
-  gtk_widget_set_size_request (label4, 88, 40);
-
-  label3 = gtk_label_new (_("Date de naissance : Jour :"));
-  gtk_widget_show (label3);
-  gtk_fixed_put (GTK_FIXED (fixed5), label3, 0, 152);
-  gtk_widget_set_size_request (label3, 200, 16);
-
   label10 = gtk_label_new (_("Type :"));
   gtk_widget_show (label10);
-  gtk_fixed_put (GTK_FIXED (fixed5), label10, 0, 240);
-  gtk_widget_set_size_request (label10, 168, 32);
+  gtk_fixed_put (GTK_FIXED (fixed5), label10, 0, 248);
+  gtk_widget_set_size_request (label10, 168, 40);
 
-  label2 = gtk_label_new (_("Identifiant :"));
-  gtk_widget_show (label2);
-  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 80);
-  gtk_widget_set_size_request (label2, 192, 40);
-
-  label6 = gtk_label_new (_("Formulaire d'ajout d'un nouvel animal"));
-  gtk_widget_show (label6);
-  gtk_fixed_put (GTK_FIXED (fixed5), label6, 64, 16);
-  gtk_widget_set_size_request (label6, 352, 56);
-
-  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("Belier"));
-  gtk_widget_show (radiobutton1);
-  gtk_fixed_put (GTK_FIXED (fixed5), radiobutton1, 176, 240);
-  gtk_widget_set_size_request (radiobutton1, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
-
-  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Veau"));
+  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("veau"));
   gtk_widget_show (radiobutton2);
-  gtk_fixed_put (GTK_FIXED (fixed5), radiobutton2, 328, 240);
-  gtk_widget_set_size_request (radiobutton2, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
+  gtk_fixed_put (GTK_FIXED (fixed5), radiobutton2, 304, 256);
+  gtk_widget_set_size_request (radiobutton2, 124, 32);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton2_group);
+  radiobutton2_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
+
+  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("belier"));
+  gtk_widget_show (radiobutton1);
+  gtk_fixed_put (GTK_FIXED (fixed5), radiobutton1, 160, 256);
+  gtk_widget_set_size_request (radiobutton1, 124, 32);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton2_group);
+  radiobutton2_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
+
+  label9 = gtk_label_new (_("Sexe :"));
+  gtk_widget_show (label9);
+  gtk_fixed_put (GTK_FIXED (fixed5), label9, 0, 184);
+  gtk_widget_set_size_request (label9, 160, 56);
+  gtk_misc_set_alignment (GTK_MISC (label9), 0.5, 0.53);
+  gtk_misc_set_padding (GTK_MISC (label9), 0, 2);
 
   combobox1 = gtk_combo_box_new_text ();
   gtk_widget_show (combobox1);
-  gtk_fixed_put (GTK_FIXED (fixed5), combobox1, 160, 192);
-  gtk_widget_set_size_request (combobox1, 136, 32);
+  gtk_fixed_put (GTK_FIXED (fixed5), combobox1, 152, 200);
+  gtk_widget_set_size_request (combobox1, 160, 32);
   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("male "));
   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("femelle"));
+
+  label3 = gtk_label_new (_("Date de naissance : Jour :"));
+  gtk_widget_show (label3);
+  gtk_fixed_put (GTK_FIXED (fixed5), label3, 0, 144);
+  gtk_widget_set_size_request (label3, 208, 40);
+
+  label4 = gtk_label_new (_("Mois :"));
+  gtk_widget_show (label4);
+  gtk_fixed_put (GTK_FIXED (fixed5), label4, 224, 144);
+  gtk_widget_set_size_request (label4, 88, 40);
+
+  label5 = gtk_label_new (_("Ann\303\251e :"));
+  gtk_widget_show (label5);
+  gtk_fixed_put (GTK_FIXED (fixed5), label5, 336, 144);
+  gtk_widget_set_size_request (label5, 96, 40);
+
+  label6 = gtk_label_new (_("Formulaire d'ajout d'un nouvel animal"));
+  gtk_widget_show (label6);
+  gtk_fixed_put (GTK_FIXED (fixed5), label6, 0, 16);
+  gtk_widget_set_size_request (label6, 504, 56);
+
+  label2 = gtk_label_new (_("Identifiant :"));
+  gtk_widget_show (label2);
+  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 88);
+  gtk_widget_set_size_request (label2, 224, 56);
 
   g_signal_connect ((gpointer) retour, "clicked",
                     G_CALLBACK (on_retour_clicked),
@@ -286,11 +385,11 @@ create_Ajouterunanimal (void)
   g_signal_connect ((gpointer) ajouter, "clicked",
                     G_CALLBACK (on_ajouter_clicked),
                     NULL);
-  g_signal_connect ((gpointer) radiobutton1, "toggled",
-                    G_CALLBACK (on_radiobutton1_toggled),
-                    NULL);
   g_signal_connect ((gpointer) radiobutton2, "toggled",
                     G_CALLBACK (on_radiobutton2_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton1, "toggled",
+                    G_CALLBACK (on_radiobutton1_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -300,8 +399,6 @@ create_Ajouterunanimal (void)
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, Jour, "Jour");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, Mois, "Mois");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, Annee, "Annee");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label9, "label9");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label5, "label5");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, retour, "retour");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, alignment2, "alignment2");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, hbox2, "hbox2");
@@ -312,14 +409,16 @@ create_Ajouterunanimal (void)
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, hbox1, "hbox1");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, image1, "image1");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, label7, "label7");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label4, "label4");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label3, "label3");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, label10, "label10");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label2, "label2");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label6, "label6");
-  GLADE_HOOKUP_OBJECT (Ajouterunanimal, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, radiobutton2, "radiobutton2");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, radiobutton1, "radiobutton1");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label9, "label9");
   GLADE_HOOKUP_OBJECT (Ajouterunanimal, combobox1, "combobox1");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label3, "label3");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label4, "label4");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label5, "label5");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label6, "label6");
+  GLADE_HOOKUP_OBJECT (Ajouterunanimal, label2, "label2");
 
   return Ajouterunanimal;
 }
@@ -337,6 +436,7 @@ create_afficher (void)
   GtkWidget *label22;
 
   afficher = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_size_request (afficher, 500, 400);
   gtk_window_set_title (GTK_WINDOW (afficher), _("afficher"));
 
   fixed6 = gtk_fixed_new ();
@@ -345,13 +445,13 @@ create_afficher (void)
 
   treeview1 = gtk_tree_view_new ();
   gtk_widget_show (treeview1);
-  gtk_fixed_put (GTK_FIXED (fixed6), treeview1, 176, 32);
-  gtk_widget_set_size_request (treeview1, 300, 200);
+  gtk_fixed_put (GTK_FIXED (fixed6), treeview1, 88, 48);
+  gtk_widget_set_size_request (treeview1, 328, 224);
 
   retouraff = gtk_button_new ();
   gtk_widget_show (retouraff);
-  gtk_fixed_put (GTK_FIXED (fixed6), retouraff, 248, 256);
-  gtk_widget_set_size_request (retouraff, 112, 32);
+  gtk_fixed_put (GTK_FIXED (fixed6), retouraff, 176, 304);
+  gtk_widget_set_size_request (retouraff, 136, 40);
 
   alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_show (alignment6);
@@ -401,32 +501,33 @@ create_modifier (void)
   GtkWidget *Mois;
   GtkObject *Annee_adj;
   GtkWidget *Annee;
-  GtkWidget *label12;
-  GtkWidget *label13;
   GtkWidget *id1;
-  GtkWidget *label14;
-  GtkWidget *label15;
-  GtkWidget *label16;
-  GtkWidget *label18;
-  GtkWidget *label19;
   GtkWidget *fixed8;
   GtkWidget *combobox2;
-  GtkWidget *retourmodif;
-  GtkWidget *alignment5;
-  GtkWidget *hbox5;
-  GtkWidget *image5;
-  GtkWidget *label21;
+  GtkWidget *label12;
+  GtkWidget *label13;
+  GtkWidget *label19;
+  GtkWidget *label18;
+  GtkWidget *radiobutton4;
+  GSList *radiobutton4_group = NULL;
+  GtkWidget *label15;
+  GtkWidget *label16;
+  GtkWidget *radiobutton5;
+  GtkWidget *label14;
+  GtkWidget *label17;
   GtkWidget *buttonmodifier;
   GtkWidget *alignment4;
   GtkWidget *hbox4;
   GtkWidget *image4;
   GtkWidget *label20;
-  GtkWidget *label17;
-  GtkWidget *radiobutton5;
-  GSList *radiobutton5_group = NULL;
-  GtkWidget *radiobutton4;
+  GtkWidget *retourmodif;
+  GtkWidget *alignment5;
+  GtkWidget *hbox5;
+  GtkWidget *image5;
+  GtkWidget *label21;
 
   modifier = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_size_request (modifier, 500, 400);
   gtk_window_set_title (GTK_WINDOW (modifier), _("modifier"));
 
   fixed7 = gtk_fixed_new ();
@@ -435,68 +536,33 @@ create_modifier (void)
 
   id = gtk_entry_new ();
   gtk_widget_show (id);
-  gtk_fixed_put (GTK_FIXED (fixed7), id, 208, 16);
-  gtk_widget_set_size_request (id, 144, 24);
+  gtk_fixed_put (GTK_FIXED (fixed7), id, 224, 32);
+  gtk_widget_set_size_request (id, 152, 32);
   gtk_entry_set_invisible_char (GTK_ENTRY (id), 8226);
 
   Jour_adj = gtk_adjustment_new (4, 1, 31, 1, 10, 10);
   Jour = gtk_spin_button_new (GTK_ADJUSTMENT (Jour_adj), 1, 0);
   gtk_widget_show (Jour);
-  gtk_fixed_put (GTK_FIXED (fixed7), Jour, 176, 104);
-  gtk_widget_set_size_request (Jour, 48, 24);
+  gtk_fixed_put (GTK_FIXED (fixed7), Jour, 176, 168);
+  gtk_widget_set_size_request (Jour, 64, 24);
 
   Mois_adj = gtk_adjustment_new (1, 1, 12, 1, 10, 10);
   Mois = gtk_spin_button_new (GTK_ADJUSTMENT (Mois_adj), 1, 0);
   gtk_widget_show (Mois);
-  gtk_fixed_put (GTK_FIXED (fixed7), Mois, 272, 104);
+  gtk_fixed_put (GTK_FIXED (fixed7), Mois, 296, 168);
   gtk_widget_set_size_request (Mois, 48, 24);
 
   Annee_adj = gtk_adjustment_new (1, 2000, 2021, 1, 10, 10);
   Annee = gtk_spin_button_new (GTK_ADJUSTMENT (Annee_adj), 1, 0);
   gtk_widget_show (Annee);
-  gtk_fixed_put (GTK_FIXED (fixed7), Annee, 376, 104);
-  gtk_widget_set_size_request (Annee, 48, 24);
-
-  label12 = gtk_label_new (_("L'ID de l'animal \303\240 modifier : "));
-  gtk_widget_show (label12);
-  gtk_fixed_put (GTK_FIXED (fixed7), label12, 16, 16);
-  gtk_widget_set_size_request (label12, 192, 24);
-
-  label13 = gtk_label_new (_("Les coordonn\303\251es \303\240 modifier:"));
-  gtk_widget_show (label13);
-  gtk_fixed_put (GTK_FIXED (fixed7), label13, 104, 48);
-  gtk_widget_set_size_request (label13, 208, 16);
+  gtk_fixed_put (GTK_FIXED (fixed7), Annee, 400, 168);
+  gtk_widget_set_size_request (Annee, 56, 24);
 
   id1 = gtk_entry_new ();
   gtk_widget_show (id1);
-  gtk_fixed_put (GTK_FIXED (fixed7), id1, 40, 72);
-  gtk_widget_set_size_request (id1, 144, 24);
+  gtk_fixed_put (GTK_FIXED (fixed7), id1, 152, 120);
+  gtk_widget_set_size_request (id1, 152, 32);
   gtk_entry_set_invisible_char (GTK_ENTRY (id1), 8226);
-
-  label14 = gtk_label_new (_("Date de naissance: Jour :"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed7), label14, 0, 104);
-  gtk_widget_set_size_request (label14, 184, 16);
-
-  label15 = gtk_label_new (_("Mois :"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed7), label15, 224, 104);
-  gtk_widget_set_size_request (label15, 49, 17);
-
-  label16 = gtk_label_new (_("Ann\303\251e:"));
-  gtk_widget_show (label16);
-  gtk_fixed_put (GTK_FIXED (fixed7), label16, 328, 104);
-  gtk_widget_set_size_request (label16, 49, 17);
-
-  label18 = gtk_label_new (_("Sexe :"));
-  gtk_widget_show (label18);
-  gtk_fixed_put (GTK_FIXED (fixed7), label18, 8, 136);
-  gtk_widget_set_size_request (label18, 64, 24);
-
-  label19 = gtk_label_new (_("Type : "));
-  gtk_widget_show (label19);
-  gtk_fixed_put (GTK_FIXED (fixed7), label19, 16, 168);
-  gtk_widget_set_size_request (label19, 49, 17);
 
   fixed8 = gtk_fixed_new ();
   gtk_widget_show (fixed8);
@@ -505,36 +571,69 @@ create_modifier (void)
 
   combobox2 = gtk_combo_box_new_text ();
   gtk_widget_show (combobox2);
-  gtk_fixed_put (GTK_FIXED (fixed8), combobox2, 16, 0);
-  gtk_widget_set_size_request (combobox2, 152, 32);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox2), _("Brebi"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox2), _("Veau"));
+  gtk_fixed_put (GTK_FIXED (fixed8), combobox2, 64, 96);
+  gtk_widget_set_size_request (combobox2, 160, 40);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox2), _("brebi"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox2), _("veau"));
 
-  retourmodif = gtk_button_new ();
-  gtk_widget_show (retourmodif);
-  gtk_fixed_put (GTK_FIXED (fixed7), retourmodif, 216, 208);
-  gtk_widget_set_size_request (retourmodif, 112, 32);
+  label12 = gtk_label_new (_("L'ID de l'animal \303\240 modifier : "));
+  gtk_widget_show (label12);
+  gtk_fixed_put (GTK_FIXED (fixed7), label12, 0, 24);
+  gtk_widget_set_size_request (label12, 224, 40);
 
-  alignment5 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment5);
-  gtk_container_add (GTK_CONTAINER (retourmodif), alignment5);
+  label13 = gtk_label_new (_("Les coordonn\303\251es \303\240 modifier:"));
+  gtk_widget_show (label13);
+  gtk_fixed_put (GTK_FIXED (fixed7), label13, 0, 64);
+  gtk_widget_set_size_request (label13, 504, 48);
 
-  hbox5 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox5);
-  gtk_container_add (GTK_CONTAINER (alignment5), hbox5);
+  label19 = gtk_label_new (_("Type : "));
+  gtk_widget_show (label19);
+  gtk_fixed_put (GTK_FIXED (fixed7), label19, 0, 264);
+  gtk_widget_set_size_request (label19, 120, 40);
 
-  image5 = gtk_image_new_from_stock ("gtk-undo", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image5);
-  gtk_box_pack_start (GTK_BOX (hbox5), image5, FALSE, FALSE, 0);
+  label18 = gtk_label_new (_("Sexe :"));
+  gtk_widget_show (label18);
+  gtk_fixed_put (GTK_FIXED (fixed7), label18, 0, 200);
+  gtk_widget_set_size_request (label18, 112, 48);
 
-  label21 = gtk_label_new_with_mnemonic (_("Retourner"));
-  gtk_widget_show (label21);
-  gtk_box_pack_start (GTK_BOX (hbox5), label21, FALSE, FALSE, 0);
+  radiobutton4 = gtk_radio_button_new_with_mnemonic (NULL, _("male"));
+  gtk_widget_show (radiobutton4);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton4, 120, 208);
+  gtk_widget_set_size_request (radiobutton4, 136, 32);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton4), radiobutton4_group);
+  radiobutton4_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton4));
+
+  label15 = gtk_label_new (_("Mois :"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed7), label15, 248, 168);
+  gtk_widget_set_size_request (label15, 49, 32);
+
+  label16 = gtk_label_new (_("Ann\303\251e:"));
+  gtk_widget_show (label16);
+  gtk_fixed_put (GTK_FIXED (fixed7), label16, 344, 168);
+  gtk_widget_set_size_request (label16, 57, 32);
+
+  radiobutton5 = gtk_radio_button_new_with_mnemonic (NULL, _("femelle"));
+  gtk_widget_show (radiobutton5);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton5, 248, 208);
+  gtk_widget_set_size_request (radiobutton5, 136, 40);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton5), radiobutton4_group);
+  radiobutton4_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton5));
+
+  label14 = gtk_label_new (_("Date de naissance: Jour :"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed7), label14, 0, 160);
+  gtk_widget_set_size_request (label14, 184, 40);
+
+  label17 = gtk_label_new (_("ID :"));
+  gtk_widget_show (label17);
+  gtk_fixed_put (GTK_FIXED (fixed7), label17, 16, 112);
+  gtk_widget_set_size_request (label17, 136, 48);
 
   buttonmodifier = gtk_button_new ();
   gtk_widget_show (buttonmodifier);
-  gtk_fixed_put (GTK_FIXED (fixed7), buttonmodifier, 48, 208);
-  gtk_widget_set_size_request (buttonmodifier, 112, 32);
+  gtk_fixed_put (GTK_FIXED (fixed7), buttonmodifier, 48, 328);
+  gtk_widget_set_size_request (buttonmodifier, 120, 40);
 
   alignment4 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_show (alignment4);
@@ -552,36 +651,38 @@ create_modifier (void)
   gtk_widget_show (label20);
   gtk_box_pack_start (GTK_BOX (hbox4), label20, FALSE, FALSE, 0);
 
-  label17 = gtk_label_new (_("ID :"));
-  gtk_widget_show (label17);
-  gtk_fixed_put (GTK_FIXED (fixed7), label17, 0, 72);
-  gtk_widget_set_size_request (label17, 49, 17);
+  retourmodif = gtk_button_new ();
+  gtk_widget_show (retourmodif);
+  gtk_fixed_put (GTK_FIXED (fixed7), retourmodif, 296, 328);
+  gtk_widget_set_size_request (retourmodif, 136, 40);
 
-  radiobutton5 = gtk_radio_button_new_with_mnemonic (NULL, _("femelle"));
-  gtk_widget_show (radiobutton5);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton5, 216, 136);
-  gtk_widget_set_size_request (radiobutton5, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton5), radiobutton5_group);
-  radiobutton5_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton5));
+  alignment5 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment5);
+  gtk_container_add (GTK_CONTAINER (retourmodif), alignment5);
 
-  radiobutton4 = gtk_radio_button_new_with_mnemonic (NULL, _("male"));
-  gtk_widget_show (radiobutton4);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton4, 88, 136);
-  gtk_widget_set_size_request (radiobutton4, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton4), radiobutton5_group);
-  radiobutton5_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton4));
+  hbox5 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox5);
+  gtk_container_add (GTK_CONTAINER (alignment5), hbox5);
 
-  g_signal_connect ((gpointer) retourmodif, "clicked",
-                    G_CALLBACK (on_retourmodif_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) buttonmodifier, "clicked",
-                    G_CALLBACK (on_buttonmodifier_clicked),
+  image5 = gtk_image_new_from_stock ("gtk-undo", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image5);
+  gtk_box_pack_start (GTK_BOX (hbox5), image5, FALSE, FALSE, 0);
+
+  label21 = gtk_label_new_with_mnemonic (_("Retourner"));
+  gtk_widget_show (label21);
+  gtk_box_pack_start (GTK_BOX (hbox5), label21, FALSE, FALSE, 0);
+
+  g_signal_connect ((gpointer) radiobutton4, "toggled",
+                    G_CALLBACK (on_radiobutton4_toggled),
                     NULL);
   g_signal_connect ((gpointer) radiobutton5, "toggled",
                     G_CALLBACK (on_radiobutton5_toggled),
                     NULL);
-  g_signal_connect ((gpointer) radiobutton4, "toggled",
-                    G_CALLBACK (on_radiobutton4_toggled),
+  g_signal_connect ((gpointer) buttonmodifier, "clicked",
+                    G_CALLBACK (on_buttonmodifier_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) retourmodif, "clicked",
+                    G_CALLBACK (on_retourmodif_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -591,29 +692,29 @@ create_modifier (void)
   GLADE_HOOKUP_OBJECT (modifier, Jour, "Jour");
   GLADE_HOOKUP_OBJECT (modifier, Mois, "Mois");
   GLADE_HOOKUP_OBJECT (modifier, Annee, "Annee");
-  GLADE_HOOKUP_OBJECT (modifier, label12, "label12");
-  GLADE_HOOKUP_OBJECT (modifier, label13, "label13");
   GLADE_HOOKUP_OBJECT (modifier, id1, "id1");
-  GLADE_HOOKUP_OBJECT (modifier, label14, "label14");
-  GLADE_HOOKUP_OBJECT (modifier, label15, "label15");
-  GLADE_HOOKUP_OBJECT (modifier, label16, "label16");
-  GLADE_HOOKUP_OBJECT (modifier, label18, "label18");
-  GLADE_HOOKUP_OBJECT (modifier, label19, "label19");
   GLADE_HOOKUP_OBJECT (modifier, fixed8, "fixed8");
   GLADE_HOOKUP_OBJECT (modifier, combobox2, "combobox2");
-  GLADE_HOOKUP_OBJECT (modifier, retourmodif, "retourmodif");
-  GLADE_HOOKUP_OBJECT (modifier, alignment5, "alignment5");
-  GLADE_HOOKUP_OBJECT (modifier, hbox5, "hbox5");
-  GLADE_HOOKUP_OBJECT (modifier, image5, "image5");
-  GLADE_HOOKUP_OBJECT (modifier, label21, "label21");
+  GLADE_HOOKUP_OBJECT (modifier, label12, "label12");
+  GLADE_HOOKUP_OBJECT (modifier, label13, "label13");
+  GLADE_HOOKUP_OBJECT (modifier, label19, "label19");
+  GLADE_HOOKUP_OBJECT (modifier, label18, "label18");
+  GLADE_HOOKUP_OBJECT (modifier, radiobutton4, "radiobutton4");
+  GLADE_HOOKUP_OBJECT (modifier, label15, "label15");
+  GLADE_HOOKUP_OBJECT (modifier, label16, "label16");
+  GLADE_HOOKUP_OBJECT (modifier, radiobutton5, "radiobutton5");
+  GLADE_HOOKUP_OBJECT (modifier, label14, "label14");
+  GLADE_HOOKUP_OBJECT (modifier, label17, "label17");
   GLADE_HOOKUP_OBJECT (modifier, buttonmodifier, "buttonmodifier");
   GLADE_HOOKUP_OBJECT (modifier, alignment4, "alignment4");
   GLADE_HOOKUP_OBJECT (modifier, hbox4, "hbox4");
   GLADE_HOOKUP_OBJECT (modifier, image4, "image4");
   GLADE_HOOKUP_OBJECT (modifier, label20, "label20");
-  GLADE_HOOKUP_OBJECT (modifier, label17, "label17");
-  GLADE_HOOKUP_OBJECT (modifier, radiobutton5, "radiobutton5");
-  GLADE_HOOKUP_OBJECT (modifier, radiobutton4, "radiobutton4");
+  GLADE_HOOKUP_OBJECT (modifier, retourmodif, "retourmodif");
+  GLADE_HOOKUP_OBJECT (modifier, alignment5, "alignment5");
+  GLADE_HOOKUP_OBJECT (modifier, hbox5, "hbox5");
+  GLADE_HOOKUP_OBJECT (modifier, image5, "image5");
+  GLADE_HOOKUP_OBJECT (modifier, label21, "label21");
 
   return modifier;
 }
@@ -623,72 +724,34 @@ create_type (void)
 {
   GtkWidget *type;
   GtkWidget *fixed9;
-  GtkWidget *label23;
-  GtkWidget *radiobutton7;
-  GSList *radiobutton7_group = NULL;
-  GtkWidget *radiobutton6;
-  GtkWidget *OK;
-  GtkWidget *alignment7;
-  GtkWidget *hbox7;
-  GtkWidget *image7;
-  GtkWidget *label24;
   GtkWidget *retourtype;
   GtkWidget *alignment8;
   GtkWidget *hbox8;
   GtkWidget *image8;
   GtkWidget *label25;
+  GtkWidget *label26;
+  GtkWidget *radiobutton7;
+  GSList *radiobutton7_group = NULL;
+  GtkWidget *label23;
+  GtkWidget *OK;
+  GtkWidget *alignment7;
+  GtkWidget *hbox7;
+  GtkWidget *image7;
+  GtkWidget *label24;
+  GtkWidget *radiobutton6;
 
   type = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_size_request (type, 500, 400);
   gtk_window_set_title (GTK_WINDOW (type), _("type"));
 
   fixed9 = gtk_fixed_new ();
   gtk_widget_show (fixed9);
   gtk_container_add (GTK_CONTAINER (type), fixed9);
 
-  label23 = gtk_label_new (_("S\303\251lectionner le type des troupeaux :"));
-  gtk_widget_show (label23);
-  gtk_fixed_put (GTK_FIXED (fixed9), label23, 56, 16);
-  gtk_widget_set_size_request (label23, 248, 32);
-
-  radiobutton7 = gtk_radio_button_new_with_mnemonic (NULL, _("Veau"));
-  gtk_widget_show (radiobutton7);
-  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton7, 216, 72);
-  gtk_widget_set_size_request (radiobutton7, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton7), radiobutton7_group);
-  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton7));
-
-  radiobutton6 = gtk_radio_button_new_with_mnemonic (NULL, _("Brebi"));
-  gtk_widget_show (radiobutton6);
-  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton6, 80, 72);
-  gtk_widget_set_size_request (radiobutton6, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton6), radiobutton7_group);
-  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton6));
-
-  OK = gtk_button_new ();
-  gtk_widget_show (OK);
-  gtk_fixed_put (GTK_FIXED (fixed9), OK, 144, 120);
-  gtk_widget_set_size_request (OK, 82, 32);
-
-  alignment7 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment7);
-  gtk_container_add (GTK_CONTAINER (OK), alignment7);
-
-  hbox7 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox7);
-  gtk_container_add (GTK_CONTAINER (alignment7), hbox7);
-
-  image7 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image7);
-  gtk_box_pack_start (GTK_BOX (hbox7), image7, FALSE, FALSE, 0);
-
-  label24 = gtk_label_new_with_mnemonic (_("OK"));
-  gtk_widget_show (label24);
-  gtk_box_pack_start (GTK_BOX (hbox7), label24, FALSE, FALSE, 0);
-
   retourtype = gtk_button_new ();
   gtk_widget_show (retourtype);
-  gtk_fixed_put (GTK_FIXED (fixed9), retourtype, 32, 208);
-  gtk_widget_set_size_request (retourtype, 120, 32);
+  gtk_fixed_put (GTK_FIXED (fixed9), retourtype, 24, 312);
+  gtk_widget_set_size_request (retourtype, 128, 32);
 
   alignment8 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_show (alignment8);
@@ -706,35 +769,81 @@ create_type (void)
   gtk_widget_show (label25);
   gtk_box_pack_start (GTK_BOX (hbox8), label25, FALSE, FALSE, 0);
 
+  label26 = gtk_label_new ("");
+  gtk_widget_show (label26);
+  gtk_fixed_put (GTK_FIXED (fixed9), label26, 0, 216);
+  gtk_widget_set_size_request (label26, 496, 64);
+
+  radiobutton7 = gtk_radio_button_new_with_mnemonic (NULL, _("Veau"));
+  gtk_widget_show (radiobutton7);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton7, 296, 88);
+  gtk_widget_set_size_request (radiobutton7, 152, 32);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton7), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton7));
+
+  label23 = gtk_label_new (_("S\303\251lectionner le type des troupeaux :"));
+  gtk_widget_show (label23);
+  gtk_fixed_put (GTK_FIXED (fixed9), label23, -32, 24);
+  gtk_widget_set_size_request (label23, 560, 48);
+
+  OK = gtk_button_new ();
+  gtk_widget_show (OK);
+  gtk_fixed_put (GTK_FIXED (fixed9), OK, 160, 152);
+  gtk_widget_set_size_request (OK, 144, 40);
+
+  alignment7 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment7);
+  gtk_container_add (GTK_CONTAINER (OK), alignment7);
+
+  hbox7 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox7);
+  gtk_container_add (GTK_CONTAINER (alignment7), hbox7);
+
+  image7 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image7);
+  gtk_box_pack_start (GTK_BOX (hbox7), image7, FALSE, FALSE, 0);
+
+  label24 = gtk_label_new_with_mnemonic (_("OK"));
+  gtk_widget_show (label24);
+  gtk_box_pack_start (GTK_BOX (hbox7), label24, FALSE, FALSE, 0);
+
+  radiobutton6 = gtk_radio_button_new_with_mnemonic (NULL, _("Brebi"));
+  gtk_widget_show (radiobutton6);
+  gtk_fixed_put (GTK_FIXED (fixed9), radiobutton6, 72, 88);
+  gtk_widget_set_size_request (radiobutton6, 164, 40);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton6), radiobutton7_group);
+  radiobutton7_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton6));
+
+  g_signal_connect ((gpointer) retourtype, "clicked",
+                    G_CALLBACK (on_retourtype_clicked),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton7, "toggled",
                     G_CALLBACK (on_radiobutton7_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) radiobutton6, "toggled",
-                    G_CALLBACK (on_radiobutton6_toggled),
                     NULL);
   g_signal_connect ((gpointer) OK, "clicked",
                     G_CALLBACK (on_OK_clicked),
                     NULL);
-  g_signal_connect ((gpointer) retourtype, "clicked",
-                    G_CALLBACK (on_retourtype_clicked),
+  g_signal_connect ((gpointer) radiobutton6, "toggled",
+                    G_CALLBACK (on_radiobutton6_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (type, type, "type");
   GLADE_HOOKUP_OBJECT (type, fixed9, "fixed9");
-  GLADE_HOOKUP_OBJECT (type, label23, "label23");
-  GLADE_HOOKUP_OBJECT (type, radiobutton7, "radiobutton7");
-  GLADE_HOOKUP_OBJECT (type, radiobutton6, "radiobutton6");
-  GLADE_HOOKUP_OBJECT (type, OK, "OK");
-  GLADE_HOOKUP_OBJECT (type, alignment7, "alignment7");
-  GLADE_HOOKUP_OBJECT (type, hbox7, "hbox7");
-  GLADE_HOOKUP_OBJECT (type, image7, "image7");
-  GLADE_HOOKUP_OBJECT (type, label24, "label24");
   GLADE_HOOKUP_OBJECT (type, retourtype, "retourtype");
   GLADE_HOOKUP_OBJECT (type, alignment8, "alignment8");
   GLADE_HOOKUP_OBJECT (type, hbox8, "hbox8");
   GLADE_HOOKUP_OBJECT (type, image8, "image8");
   GLADE_HOOKUP_OBJECT (type, label25, "label25");
+  GLADE_HOOKUP_OBJECT (type, label26, "label26");
+  GLADE_HOOKUP_OBJECT (type, radiobutton7, "radiobutton7");
+  GLADE_HOOKUP_OBJECT (type, label23, "label23");
+  GLADE_HOOKUP_OBJECT (type, OK, "OK");
+  GLADE_HOOKUP_OBJECT (type, alignment7, "alignment7");
+  GLADE_HOOKUP_OBJECT (type, hbox7, "hbox7");
+  GLADE_HOOKUP_OBJECT (type, image7, "image7");
+  GLADE_HOOKUP_OBJECT (type, label24, "label24");
+  GLADE_HOOKUP_OBJECT (type, radiobutton6, "radiobutton6");
 
   return type;
 }

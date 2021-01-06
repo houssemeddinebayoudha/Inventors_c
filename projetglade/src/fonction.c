@@ -136,7 +136,7 @@ int nbr_de_trp_chaq_type( char type [20])
  {
 
 FILE*f;
-int i;
+int i=0;
 animal a;
 
 f=fopen("troupeaux.txt","r+");
