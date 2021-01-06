@@ -22,7 +22,7 @@ typedef struct {
   date date_naiss;
    }animal;
  void ajout(animal a);
- void modifier(char id[10], animal a);
+ void modifie(char id[10], animal a);
  void supprimer (char id [10]);
  void afficher(GtkWidget *liste);
  int nbr_de_trp_chaq_type( char type[20]);
