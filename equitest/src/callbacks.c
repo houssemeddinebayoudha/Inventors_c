@@ -10,7 +10,7 @@
 #include "fonction.h"
 char x='f';
 int i=0;
-
+char x2='f';
 void
 on_button1_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
@@ -69,7 +69,7 @@ on_button4_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
 GtkWidget *windowsearch,*actual;
-actual=lookup_widget(button,"home");
+actual=lookup_widget(button,"window1");
 gtk_widget_destroy(actual);
 windowsearch=create_search();
 gtk_widget_show(windowsearch);
@@ -157,10 +157,10 @@ on_button9_clicked                     (GtkWidget       *button,
 {GtkWidget *id,*etat;
 char idd[20],text[20],e;
 id=lookup_widget (button,"id");
-etat=lookup_widget (button,"etat");
+
 strcpy(idd,gtk_entry_get_text(GTK_ENTRY(id)));
-strcpy(text,gtk_entry_get_text(GTK_ENTRY(etat)));
-e=text[0];
+
+e=x2;
 modifier(idd,e);
 }
 
@@ -172,6 +172,8 @@ on_treeview1_row_activated             (GtkTreeView     *treeview,
                                         gpointer         user_data)
 {
 GtkTreeIter iter;
+GtkTreeSelection *selection;
+GtkWidget p;
 gchar* id;
 gchar* marque;
 gchar* etat;
@@ -181,9 +183,11 @@ equi e;
 
 GtkTreeModel *model= gtk_tree_view_get_model(treeview);
 
+selection=gtk_tree_view_get_selection(treeview);
 if (gtk_tree_model_get_iter(model, &iter,path)){
 gtk_tree_model_get(GTK_LIST_STORE(model),&iter,0,&id,1,&marque,2,&etat,3,&dispo,4,&date, -1);
 supprimer(id);
+afficher(treeview);
 
 }
 
@@ -221,11 +225,13 @@ gtk_widget_show(home);
 void
 on_retoursearch_clicked                (GtkWidget       *button,
                                         gpointer         user_data)
-{GtkWidget *home,*actual;
+{GtkWidget *home,*actual,*treeview;
 actual=lookup_widget(button,"search");
 gtk_widget_destroy(actual);
-home=create_home();
+home=create_window1();
 gtk_widget_show(home);
+treeview=lookup_widget(home,"treeview1");
+afficher(treeview);
 
 }
 
@@ -233,11 +239,13 @@ gtk_widget_show(home);
 void
 on_retournermodifier_clicked           (GtkWidget       *button,
                                         gpointer         user_data)
-{GtkWidget *home,*actual;
+{GtkWidget *home,*actual,*treeview;
 actual=lookup_widget(button,"modifier");
 gtk_widget_destroy(actual);
-home=create_home();
+home=create_window1();
 gtk_widget_show(home);
+treeview=lookup_widget(home,"treeview1");
+afficher(treeview);
 
 }
 
@@ -301,4 +309,83 @@ home=create_ajout();
 gtk_widget_show(home);
 
 }
+
+
+void
+on_radiobutton5_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+x2='f';
+}
+
+
+void
+on_radiobutton6_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+x2='p';
+
+}
+
+
+void
+on_sup_clicked                         (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkTreeSelection *selection;
+        GtkTreeModel     *model;
+        GtkTreeIter iter;
+	GtkWidget* t;
+
+	gchar* id;
+
+	t=lookup_widget(button,"treeview1");
+selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(t));
+if (gtk_tree_selection_get_selected(selection, &model, &iter))
+        {  gtk_tree_model_get (model,&iter,0,&id,-1);
+supprimer(id);
+afficher(GTK_TREE_VIEW(t));
+
+};
+
+
+
+}
+
+
+void
+on_modif_clicked                       (GtkWidget       *button,
+                                        gpointer         user_data)
+{GtkWidget *windowmodifier,*actual,*idd;
+
+
+GtkTreeSelection *selection;
+        GtkTreeModel     *model;
+        GtkTreeIter iter;
+	GtkWidget* t;
+
+	gchar* id;
+
+	t=lookup_widget(button,"treeview1");
+selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(t));
+if (gtk_tree_selection_get_selected(selection, &model, &iter))
+        {  gtk_tree_model_get (model,&iter,0,&id,-1);
+
+
+};
+actual=lookup_widget(button,"window1");
+gtk_widget_destroy(actual);
+windowmodifier=create_modifier();
+gtk_widget_show(windowmodifier);
+
+idd=lookup_widget(windowmodifier,"id");
+
+
+gtk_entry_set_text(idd,id);
+
+}
+
+
 
