@@ -278,3 +278,28 @@ on_gestionplant_clicked                (GtkWidget       *button,
 void
 on_gestionequi_clicked                 (GtkWidget       *button,
                                         gpointer         user_data);
+
+void
+on_retourmodiff_clicked                (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_buttonModifierr_clicked             (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_home_dec_clicked             (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_Mestrp_dec_clicked           (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_InterfaceAfficher_a_retour_dec_clicked
+                                        (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_Menu_dec_clicked             (GtkWidget       *button,
+                                        gpointer         user_data);

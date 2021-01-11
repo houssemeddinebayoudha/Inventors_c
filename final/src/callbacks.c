@@ -200,7 +200,7 @@ on_buttonmodifier_clicked              (GtkWidget      *objet,
 	GtkWidget *modifier;
 animal a;
 char idd[10];
-modifier =lookup_widget(objet, "modifier" );
+//modifier =lookup_widget(objet, "modifier" );
  id=lookup_widget(objet, "id");	
  id1=lookup_widget(objet, "id1");
  Jour=lookup_widget(objet,"Jour");
@@ -237,7 +237,7 @@ on_OK_clicked                          (GtkWidget       *objet,
 	GtkWidget *OK,*l;
 	
  char ch[40];
- OK =lookup_widget(objet, "OK" );
+ //OK =lookup_widget(objet, "OK" );
  int k=nbr_de_trp_chaq_type(typpe);
  l=lookup_widget(objet,"label26");
 sprintf(ch,"Le nombre de %s est %d",typpe,k);
@@ -1300,5 +1300,83 @@ gtk_widget_destroy(actual);
 home=create_home();
 gtk_widget_show(home);
 
+}
+
+
+void
+on_retourmodiff_clicked                (GtkWidget       *objet,
+                                        gpointer         user_data)
+{
+GtkWidget *Mestroupeaux,*modifier;
+modifier=lookup_widget(objet,"modiff");
+gtk_widget_destroy(modifier);
+Mestroupeaux=create_Mestroupeaux();
+gtk_widget_show(Mestroupeaux);
+
+}
+
+
+void
+on_buttonModifierr_clicked             (GtkWidget       *objet,
+                                        gpointer         user_data)
+{
+GtkWidget *Mestroupeaux, *modifier;
+Mestroupeaux=lookup_widget(objet, "Mestroupeaux");
+gtk_widget_destroy(Mestroupeaux);
+
+modifier=create_modiff();
+gtk_widget_show(modifier);
+}
+
+
+void
+on_retour_home_dec_clicked             (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"home");
+gtk_widget_destroy(actual);
+home=create_connexion();
+gtk_widget_show(home);
+
+
+}
+
+
+void
+on_retour_Mestrp_dec_clicked           (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"Mestroupeaux");
+gtk_widget_destroy(actual);
+home=create_connexion();
+gtk_widget_show(home);
+}
+
+
+void
+on_InterfaceAfficher_a_retour_dec_clicked
+                                        (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"InterfaceAfficher_a");
+gtk_widget_destroy(actual);
+home=create_connexion();
+gtk_widget_show(home);
+
+}
+
+
+void
+on_retour_Menu_dec_clicked             (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *home,*actual;
+actual=lookup_widget(button,"menu");
+gtk_widget_destroy(actual);
+home=create_connexion();
+gtk_widget_show(home);
 }
 

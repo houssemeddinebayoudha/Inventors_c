@@ -3,6 +3,5 @@ ll sse f 1 1 4 2020
 rr ttt p 0 1 8 2020 
 pp mm f 1 1 8 2020 
 sqmdqlm qmsdl f 0 1 4 2020 
-tle epp f 0 12 5 2020 
-lasttest beforesleep f 1 1 5 2020 
-test10 lsqk f 0 1 5 2021 
+tle epp p 1 12 5 2020 
+test_e test_e p 0 1 4 2020 
